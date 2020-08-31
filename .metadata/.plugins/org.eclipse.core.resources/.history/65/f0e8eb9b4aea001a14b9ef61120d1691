@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.atguigu.crowd</groupId>
+	<artifactId>atcrowdfunding01-admin-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>atcrowdfunding02-admin-webui</module>
+		<module>atcrowdfunding03-admin-component</module>
+		<module>atcrowdfunding04-admin-entity</module>
+	</modules>
+	<properties>
+		<!-- 声明属性，对 Spring 的版本进行统一管理 -->
+		<atguigu.spring.version>4.3.20.RELEASE</atguigu.spring.version>
+		<!-- 声明属性，对 SpringSecurity 的版本进行统一管理 -->
+		<atguigu.spring.security.version>4.2.10.RELEASE</atguigu.spring.security.version>
+	</properties>
+</project>

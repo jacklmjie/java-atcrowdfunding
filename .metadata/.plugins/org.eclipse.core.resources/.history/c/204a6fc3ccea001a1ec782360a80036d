@@ -1,0 +1,15 @@
+package com.atguigu.crowd.mvc.handler;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.atguigu.crowd.service.api.AdminService;
+
+@Controller
+public class TestHandler {
+	
+	@Autowired
+	private AdminService adminService;
+	
+	
+}

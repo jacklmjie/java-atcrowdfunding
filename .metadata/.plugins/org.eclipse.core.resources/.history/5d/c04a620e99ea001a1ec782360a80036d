@@ -1,0 +1,10 @@
+package com.atguigu.crowd.test;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:spring-persist-mybatis.xml" })
+public class CrowdTest {
+
+}

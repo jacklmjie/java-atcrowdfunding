@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<installs>
+    <install is-default="true">
+        <home>D:\java\spring-roo-2.0.0.RELEASE\</home>
+        <name>Roo 2.0.0.RELEASE</name>
+    </install>
+</installs>

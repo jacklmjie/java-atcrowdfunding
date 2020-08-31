@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\java\atcrowdfunding\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2367819067.index
+1391508923.index
+1579979888.index
+1793566481.index
+1167364757.index
+3015188219.index
