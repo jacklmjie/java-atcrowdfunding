@@ -11,5 +11,10 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.ResultEntity"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.security.PublicKey"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.entity.AdminExample.Criteria"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.exception.LoginFailedException"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.constant.CrowdConstant"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.CrowdUtil"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
 </qualifiedTypeNameHistroy>
