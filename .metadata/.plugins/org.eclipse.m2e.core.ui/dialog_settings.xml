@@ -25,8 +25,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="org."/>
 		</list>
 		<list key="groupId">
+			<item value="com.atguigu.crowd"/>
 		</list>
 		<list key="artifactId">
 		</list>
@@ -49,7 +51,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="atcrowdfunding06-common-reverse"/>
+			<item value="atcrowdfunding02-admin-webui"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -95,5 +97,31 @@
 		<item key="height" value="667"/>
 		<item key="x" value="720"/>
 		<item key="y" value="71"/>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding05-common-util"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding04-admin-entity"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding03-admin-component"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui"/>
+			<item value="D:\java\git\java-atcrowdfunding"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui\.settings"/>
+			<item value="D:\java\atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.MavenProjectSelectionDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="450"/>
+		<item key="x" value="720"/>
+		<item key="y" value="106"/>
 	</section>
 </section>

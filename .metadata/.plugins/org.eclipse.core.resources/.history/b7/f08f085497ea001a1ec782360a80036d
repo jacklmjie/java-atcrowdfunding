@@ -1,6 +1,0 @@
-package com.atguigu.crowd.test;
-
-@ContextConfiguration(locations = {"classpath:spring-persist-mybatis.xml"})
-public class CrowdTest {
-
-}

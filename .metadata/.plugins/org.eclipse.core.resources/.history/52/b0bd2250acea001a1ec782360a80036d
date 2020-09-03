@@ -1,7 +1,0 @@
-package com.atguigu.crowd.service.impl;
-
-import com.atguigu.crowd.service.api.AdminService;
-
-public class AdminServiceImpl implements AdminService {
-
-}

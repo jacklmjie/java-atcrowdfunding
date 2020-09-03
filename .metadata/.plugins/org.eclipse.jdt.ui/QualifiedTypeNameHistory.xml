@@ -5,8 +5,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.ParamData"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.Student"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.ResultEntity"/>
@@ -17,4 +15,15 @@
     <fullyQualifiedTypeName name="com.atguigu.crowd.constant.CrowdConstant"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.CrowdUtil"/>
     <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.entity.Admin"/>
+    <fullyQualifiedTypeName name="com.github.pagehelper.PageInfo"/>
+    <fullyQualifiedTypeName name="com.github.pagehelper.PageHelper"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="org.springframework.dao.DuplicateKeyException"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.exception.LoginAcctAlreadyInUseException"/>
 </qualifiedTypeNameHistroy>
