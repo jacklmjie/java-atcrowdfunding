@@ -21,6 +21,8 @@ Spring 整合 MyBatis-配置数据源-配置AOP的事务
 tomact要在本地下载后，基于插件
 maven moudle子工程不加载，重新导入
 <>不适配，项目属性java版本改为1.8
+@RestController注解=@ResponseBody+@Controller
+AssignHandler没有加@Controller注解，页面404，找不到
 ```
 
 ### 未解决问题
