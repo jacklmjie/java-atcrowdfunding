@@ -21,9 +21,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- 可以代替匹配跳转的页面 -->
-	<!-- <mvc:view-controller path="/xxx/xxx.htm" view-name="target" /> -->
-
 	<!-- 配置基于XML的异常映射 -->
 	<bean id="simpleMappingExceptionResolver"
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -33,6 +30,8 @@
 				<!-- key属性指定异常全类名 -->
 				<!-- 标签体中写对应的视图（这个值要拼前后缀得到具体路径） -->
 				<prop key="java.lang.Exception">system-error</prop>
+				<prop
+					key="com.atguigu.crowd.exception.AccessForbiddenException">admin-login</prop>
 			</props>
 		</property>
 	</bean>
@@ -46,6 +45,10 @@
 		path="/admin/to/main/page.html" view-name="admin-main" />
 	<mvc:view-controller path="/admin/to/add/page.html"
 		view-name="admin-add" />
+	<mvc:view-controller path="/role/to/page.html"
+		view-name="role-page" />
+	<mvc:view-controller path="/menu/to/page.html"
+		view-name="menu-page" />
 
 	<!-- 注册拦截器 -->
 	<mvc:interceptors>
@@ -65,4 +68,5 @@
 			<bean class="com.atguigu.crowd.mvc.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+
 </beans>

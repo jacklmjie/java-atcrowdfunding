@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,14 +15,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.atguigu.crowd.entity.Admin;
+import com.atguigu.crowd.entity.Role;
 import com.atguigu.crowd.mapper.AdminMapper;
+import com.atguigu.crowd.mapper.RoleMapper;
 import com.atguigu.crowd.service.api.AdminService;
 
 //指定 Spring 给 Junit 提供的运行器类
 @RunWith(SpringJUnit4ClassRunner.class)
 
 //加载 Spring 配置文件的注解
-@ContextConfiguration(locations = {"classpath:spring-persist-mybatis.xml","classpath:spring-persist-tx.xml"})
+@ContextConfiguration(locations = { "classpath:spring-persist-mybatis.xml", "classpath:spring-persist-tx.xml" })
 public class CrowdTest {
 
 	@Autowired
@@ -29,17 +32,27 @@ public class CrowdTest {
 
 	@Autowired
 	private AdminMapper adminMapper;
-	
+
 	@Autowired
 	private AdminService adminService;
-	
+
+	@Autowired
+	private RoleMapper roleMapper;
+
 	@Test
-	public void test() {
-		for(int i = 0; i < 238; i++) {
-			adminMapper.insert(new Admin(null, "loginAcct"+i, "userPswd"+i, "userName"+i, "email"+i, null));
+	public void testRoleSave() {
+		for (int i = 0; i < 156; i++) {
+			roleMapper.insert(new Role(null, "role" + i));
 		}
 	}
-	
+
+	@Test
+	public void test() {
+		for (int i = 0; i < 238; i++) {
+			adminMapper.insert(new Admin(null, "loginAcct" + i, "userPswd" + i, "userName" + i, "email" + i, null));
+		}
+	}
+
 	@Test
 	public void testTx() {
 		Admin admin = new Admin(null, "jack2", "123456", "杰2", "jack2.qq.com", null);
@@ -52,9 +65,10 @@ public class CrowdTest {
 		Logger logger = LoggerFactory.getLogger(CrowdTest.class);
 		// 按照 Debug 级别打印日志
 		logger.debug("debug消息");
-		logger.info("info消息");;
+		logger.info("info消息");
+		;
 	}
-	
+
 	@Test
 	public void testInsertAdmin() {
 		Admin admin = new Admin(null, "jack", "123456", "杰", "jack.qq.com", null);

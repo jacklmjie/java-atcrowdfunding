@@ -28,8 +28,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -61,8 +60,7 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value}
-									and
+									and ${criterion.condition} #{criterion.value} and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -83,13 +81,12 @@
 		id, login_acct, user_pswd, user_name, email, create_time
 	</sql>
 	<select id="selectAdminByKeyword" resultMap="BaseResultMap">
-		select id,
-		login_acct, user_pswd, user_name, email, create_time
+		select id, login_acct, user_pswd, user_name, email, create_time
 		from t_admin
-		where
-		login_acct like concat("%",#{keyword},"%") or
-		user_name like concat("%",#{keyword},"%") or
-		email like concat("%",#{keyword},"%")
+		where 
+			login_acct like concat("%",#{keyword},"%") or 
+			user_name like concat("%",#{keyword},"%") or 
+			email like concat("%",#{keyword},"%")
 	</select>
 	<select id="selectByExample" resultMap="BaseResultMap"
 		parameterType="com.atguigu.crowd.entity.AdminExample">
@@ -113,6 +110,9 @@
 		from t_admin
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+	<delete id="deleteOLdRelationship">
+		delete from inner_admin_role where admin_id=#{adminId}
+	</delete>
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
 		delete from t_admin
@@ -125,16 +125,18 @@
 			<include refid="Example_Where_Clause" />
 		</if>
 	</delete>
+	<insert id="insertNewRelationship">
+		insert into inner_admin_role(admin_id,role_id) values
+		<foreach collection="roleIdList" item="roleId" separator=",">(#{adminId},#{roleId})</foreach>
+	</insert>
 	<insert id="insert"
 		parameterType="com.atguigu.crowd.entity.Admin">
 		insert into t_admin (id, login_acct, user_pswd,
 		user_name, email, create_time
 		)
-		values (#{id,jdbcType=INTEGER},
-		#{loginAcct,jdbcType=VARCHAR},
+		values (#{id,jdbcType=INTEGER}, #{loginAcct,jdbcType=VARCHAR},
 		#{userPswd,jdbcType=CHAR},
-		#{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
-		#{createTime,jdbcType=CHAR}
+		#{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}
 		)
 	</insert>
 	<insert id="insertSelective"
@@ -218,16 +220,11 @@
 	<update id="updateByExample" parameterType="map">
 		update t_admin
 		set id = #{record.id,jdbcType=INTEGER},
-		login_acct =
-		#{record.loginAcct,jdbcType=VARCHAR},
-		user_pswd =
-		#{record.userPswd,jdbcType=CHAR},
-		user_name =
-		#{record.userName,jdbcType=VARCHAR},
-		email =
-		#{record.email,jdbcType=VARCHAR},
-		create_time =
-		#{record.createTime,jdbcType=CHAR}
+		login_acct = #{record.loginAcct,jdbcType=VARCHAR},
+		user_pswd = #{record.userPswd,jdbcType=CHAR},
+		user_name = #{record.userName,jdbcType=VARCHAR},
+		email = #{record.email,jdbcType=VARCHAR},
+		create_time = #{record.createTime,jdbcType=CHAR}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -257,12 +254,10 @@
 	<update id="updateByPrimaryKey"
 		parameterType="com.atguigu.crowd.entity.Admin">
 		update t_admin
-		set login_acct =
-		#{loginAcct,jdbcType=VARCHAR},
+		set login_acct = #{loginAcct,jdbcType=VARCHAR},
 		user_pswd = #{userPswd,jdbcType=CHAR},
 		user_name = #{userName,jdbcType=VARCHAR},
-		email =
-		#{email,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
 		create_time = #{createTime,jdbcType=CHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>

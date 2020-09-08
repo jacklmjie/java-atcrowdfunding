@@ -16,6 +16,7 @@ import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.entity.AdminExample;
 import com.atguigu.crowd.entity.AdminExample.Criteria;
 import com.atguigu.crowd.exception.LoginAcctAlreadyInUseException;
+import com.atguigu.crowd.exception.LoginAcctAlreadyInUseForUpdateException;
 import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.mapper.AdminMapper;
 import com.atguigu.crowd.service.api.AdminService;
@@ -125,5 +126,34 @@ public class AdminServiceImpl implements AdminService {
 			}
 		}
 
+	}
+
+	public Admin getAdminById(Integer adminId) {
+		return adminMapper.selectByPrimaryKey(adminId);
+	}
+
+	public void update(Admin admin) {
+		// “Selective”表示有选择的更新，对于null值的字段不更新
+		try {
+			adminMapper.updateByPrimaryKeySelective(admin);
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			logger.info("异常全类名=" + e.getClass().getName());
+
+			if (e instanceof DuplicateKeyException) {
+				throw new LoginAcctAlreadyInUseForUpdateException(CrowdConstant.MESSAGE_LOGIN_ACCT_ALREADY_IN_USE);
+			}
+		}
+	}
+
+	public void saveAdminRoleRelationship(Integer adminId, List<Integer> roleIdList) {
+		// 1.根据adminId删除旧的关联关系数据
+		adminMapper.deleteOLdRelationship(adminId);
+		
+		// 2.根据roleIdList和adminId保存新的关联关系
+		if(roleIdList != null && roleIdList.size() > 0) {
+			adminMapper.insertNewRelationship(adminId, roleIdList);
+		}
 	}
 }

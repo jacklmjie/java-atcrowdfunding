@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.atguigu.crowd.entity.Admin;
-import com.atguigu.crowd.entity.ParamData;
-import com.atguigu.crowd.entity.Student;
+import com.atguigu.crowd.entity.test.ParamData;
+import com.atguigu.crowd.entity.test.Student;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;

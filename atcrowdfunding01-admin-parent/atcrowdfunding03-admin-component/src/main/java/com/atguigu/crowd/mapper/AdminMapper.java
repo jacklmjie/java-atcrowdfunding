@@ -1,9 +1,11 @@
 package com.atguigu.crowd.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.entity.AdminExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface AdminMapper {
 	int countByExample(AdminExample example);
@@ -29,4 +31,8 @@ public interface AdminMapper {
 	int updateByPrimaryKey(Admin record);
 	
 	List<Admin>selectAdminByKeyword(String Keyword);
+
+	void deleteOLdRelationship(Integer adminId);
+
+	void insertNewRelationship(@Param("adminId") Integer adminId, @Param("roleIdList") List<Integer> roleIdList);
 }
