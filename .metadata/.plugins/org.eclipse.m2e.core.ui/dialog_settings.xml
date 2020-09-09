@@ -100,12 +100,12 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\java\git\java-atcrowdfunding"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding05-common-util"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding04-admin-entity"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding03-admin-component"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui"/>
-			<item value="D:\java\git\java-atcrowdfunding"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui\.settings"/>
 			<item value="D:\java\atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui"/>
 		</list>

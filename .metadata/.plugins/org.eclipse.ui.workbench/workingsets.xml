@@ -5,15 +5,8 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599000958714_4" label="atcrowdfunding02-admin-webui" name="atcrowdfunding02-admin-webui"/>
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599000980741_5" label="atcrowdfunding03-admin-component" name="atcrowdfunding03-admin-component"/>
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599001000750_6" label="atcrowdfunding04-admin-entity" name="atcrowdfunding04-admin-entity"/>
-<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599001015499_7" label="atcrowdfunding01-admin-parent" name="atcrowdfunding01-admin-parent">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/atcrowdfunding01-admin-parent" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/atcrowdfunding02-admin-webui" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/atcrowdfunding03-admin-component" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/atcrowdfunding04-admin-entity" type="4"/>
-</workingSet>
-<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599002095142_8" label="atcrowdfunding05-common-util" name="atcrowdfunding05-common-util">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/atcrowdfunding05-common-util" type="4"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599001015499_7" label="atcrowdfunding01-admin-parent" name="atcrowdfunding01-admin-parent"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599002095142_8" label="atcrowdfunding05-common-util" name="atcrowdfunding05-common-util"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598685884842_2" label="Window Working Set" name="Aggregate for window 1598685884842"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598845129798_3" label="Window Working Set" name="Aggregate for window 1598845129798"/>
 </workingSetManager>
