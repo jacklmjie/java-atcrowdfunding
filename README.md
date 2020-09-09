@@ -23,6 +23,7 @@ maven moudle子工程不加载，重新导入
 <>不适配，项目属性java版本改为1.8
 @RestController注解=@ResponseBody+@Controller
 AssignHandler没有加@Controller注解，页面404，找不到
+js缓存，Maven Clean重新加载
 ```
 
 ### 未解决问题
