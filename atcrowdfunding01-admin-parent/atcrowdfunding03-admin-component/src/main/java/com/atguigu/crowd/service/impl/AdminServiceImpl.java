@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.atguigu.crowd.constant.CrowdConstant;
@@ -31,6 +32,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private AdminMapper adminMapper;
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	public List<Admin> getAll() {
 		return adminMapper.selectByExample(new AdminExample());
@@ -104,7 +108,8 @@ public class AdminServiceImpl implements AdminService {
 
 		// 1.密码加密
 		String userPswd = admin.getUserPswd();
-		userPswd = CrowdUtil.md5(userPswd);
+		// userPswd = CrowdUtil.md5(userPswd);
+		userPswd = passwordEncoder.encode(userPswd);
 		admin.setUserPswd(userPswd);
 
 		// 2.生成创建时间
@@ -150,10 +155,25 @@ public class AdminServiceImpl implements AdminService {
 	public void saveAdminRoleRelationship(Integer adminId, List<Integer> roleIdList) {
 		// 1.根据adminId删除旧的关联关系数据
 		adminMapper.deleteOLdRelationship(adminId);
-		
+
 		// 2.根据roleIdList和adminId保存新的关联关系
-		if(roleIdList != null && roleIdList.size() > 0) {
+		if (roleIdList != null && roleIdList.size() > 0) {
 			adminMapper.insertNewRelationship(adminId, roleIdList);
 		}
+	}
+
+	public Admin getAdminByLoginAcct(String username) {
+
+		AdminExample example = new AdminExample();
+
+		Criteria criteria = example.createCriteria();
+
+		criteria.andLoginAcctEqualTo(username);
+
+		List<Admin> list = adminMapper.selectByExample(example);
+
+		Admin admin = list.get(0);
+
+		return admin;
 	}
 }

@@ -1,9 +1,11 @@
 package com.atguigu.crowd.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.atguigu.crowd.entity.Auth;
 import com.atguigu.crowd.entity.AuthExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface AuthMapper {
 	int countByExample(AuthExample example);
@@ -33,4 +35,6 @@ public interface AuthMapper {
 	void deleteOldRelationship(Integer roleId);
 
 	void insertNewRelationship(@Param("roleId") Integer roleId, @Param("authIdList") List<Integer> authIdList);
+	
+	List<String> selectAssignedAuthNameByAdminId(Integer adminId);
 }
