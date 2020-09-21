@@ -1,17 +1,24 @@
 package com.atguigu.crowd.mvc.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.atguigu.crowd.constant.CrowdConstant;
 import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.service.api.AdminService;
+import com.atguigu.crowd.util.ResultEntity;
 import com.github.pagehelper.PageInfo;
 
 @Controller
@@ -72,6 +79,7 @@ public class AdminHandler {
 		return "redirect:/admin/get/page.html?pageNum=" + pageNum + "&keyword=" + keyword;
 	}
 
+	@PreAuthorize("hasAuthority('user:save')")
 	@RequestMapping("/admin/save.html")
 	public String save(Admin admin) {
 
@@ -101,5 +109,14 @@ public class AdminHandler {
 		adminService.update(admin);
 		
 		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
+	}
+	
+	//只返回偶数，对操作前进行过滤，只能操作集合
+	//PostFilter,对操作后进行过滤，只能操作集合
+	@PreFilter(value="filterObject%2==0")
+	@ResponseBody
+	@RequestMapping("/admin/test/pre/filter")
+	public ResultEntity<List<Integer>> saveList(@RequestBody List<Integer> valueList) {
+		return ResultEntity.successWithData(valueList);
 	}
 }

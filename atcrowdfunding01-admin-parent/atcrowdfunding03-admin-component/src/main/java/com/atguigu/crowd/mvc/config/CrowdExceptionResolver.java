@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 @ControllerAdvice
 public class CrowdExceptionResolver {
 
+	//登录失败
 	@ExceptionHandler(value = LoginFailedException.class)
 	public ModelAndView resolveLoginFailedException(LoginFailedException exception, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -31,6 +32,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
+	//未登录，跳转登录页面，使用spring security后已失效
 	@ExceptionHandler(value = AccessForbiddenException.class)
 	public ModelAndView resolveAccessForbiddenException(AccessForbiddenException exception, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -39,7 +41,21 @@ public class CrowdExceptionResolver {
 
 		return commonResolve(viewName, exception, request, response);
 	}
+	
+	//没有权限
+	@ExceptionHandler(value = Exception.class)
+	public ModelAndView resolveException(
+			Exception exception,
+			HttpServletRequest request,
+			HttpServletResponse response
+			) throws IOException {
+		
+		String viewName = "system-error";
+		
+		return commonResolve(viewName, exception, request, response);
+	}
 
+	//添加账号已经存在
 	@ExceptionHandler(value = LoginAcctAlreadyInUseException.class)
 	public ModelAndView resolveLoginAcctAlreadyInUseException(LoginAcctAlreadyInUseException exception,
 			HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -49,6 +65,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
+	//更新账号已经存在
 	@ExceptionHandler(value = LoginAcctAlreadyInUseForUpdateException.class)
 	public ModelAndView resolveLoginAcctAlreadyInUseForUpdateException(
 			LoginAcctAlreadyInUseForUpdateException exception, HttpServletRequest request, HttpServletResponse response)
