@@ -39,11 +39,12 @@ maven moudle子工程不加载，重新导入
 @RestController注解=@ResponseBody+@Controller
 AssignHandler没有加@Controller注解，页面404，找不到
 js缓存，Maven Clean重新加载
-[Spring Tool Suite 4 自动提示功能](https://blog.csdn.net/weixin_40816738/article/details/94998794)
-[STS（Spring-Tool-Suite）常用快捷键汇总](https://blog.csdn.net/weixin_43731571/article/details/94641881)
-[菜单没有SPRING BEAN CONFIGURATION FILE选项](https://my.oschina.net/startstorm/blog/4523329)
-[添加tomcat 服务](https://blog.csdn.net/qijianglin/article/details/82967628?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
 ```
+### 资料
+- [Spring Tool Suite 4 自动提示功能](https://blog.csdn.net/weixin_40816738/article/details/94998794)
+- [STS（Spring-Tool-Suite）常用快捷键汇总](https://blog.csdn.net/weixin_43731571/article/details/94641881)
+- [菜单没有SPRING BEAN CONFIGURATION FILE选项](https://my.oschina.net/startstorm/blog/4523329)
+- [添加tomcat 服务](https://blog.csdn.net/qijianglin/article/details/82967628?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
 
 ### 未解决问题
 ```bash
