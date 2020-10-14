@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import com.atguigu.crowd.entity.Admin;
 
 /**
- * ¿¼ÂÇµ½User¶ÔÏóÖĞ½ö½ö°üº¬ÕËºÅºÍÃÜÂë£¬ÎªÁËÄÜ¹»»ñÈ¡µ½Ô­Ê¼µÄAdmin¶ÔÏó£¬×¨ÃÅ´´½¨Õâ¸öÀà¶ÔUserÀà½øĞĞÀ©Õ¹
+ * è€ƒè™‘åˆ°Userå¯¹è±¡ä¸­ä»…ä»…åŒ…å«è´¦å·å’Œå¯†ç ï¼Œä¸ºäº†èƒ½å¤Ÿè·å–åˆ°åŸå§‹çš„Adminå¯¹è±¡ï¼Œä¸“é—¨åˆ›å»ºè¿™ä¸ªç±»å¯¹Userç±»è¿›è¡Œæ‰©å±•
  * 
  * @author Lenovo
  *
@@ -17,27 +17,27 @@ public class SecurityAdmin extends User {
 
 	private static final long serialVersionUID = 1L;
 
-	// Ô­Ê¼µÄAdmin¶ÔÏó£¬°üº¬Admin¶ÔÏóµÄÈ«²¿ÊôĞÔ
+	// åŸå§‹çš„Adminå¯¹è±¡ï¼ŒåŒ…å«Adminå¯¹è±¡çš„å…¨éƒ¨å±æ€§
 	private Admin originalAdmin;
 
 	public SecurityAdmin(
-			// ´«ÈëÔ­Ê¼µÄAdmin¶ÔÏó
+			// ä¼ å…¥åŸå§‹çš„Adminå¯¹è±¡
 			Admin originalAdmin,
 
-			// ´´½¨½ÇÉ«¡¢È¨ÏŞĞÅÏ¢µÄ¼¯ºÏ
+			// åˆ›å»ºè§’è‰²ã€æƒé™ä¿¡æ¯çš„é›†åˆ
 			List<GrantedAuthority> authorities) {
 
-		// µ÷ÓÃ¸¸Àà¹¹ÔìÆ÷
+		// è°ƒç”¨çˆ¶ç±»æ„é€ å™¨
 		super(originalAdmin.getLoginAcct(), originalAdmin.getUserPswd(), authorities);
 
-		// ¸ø±¾ÀàµÄthis.originalAdmin¸³Öµ
+		// ç»™æœ¬ç±»çš„this.originalAdminèµ‹å€¼
 		this.originalAdmin = originalAdmin;
 
-		// ½«Ô­Ê¼Admin¶ÔÏóÖĞµÄÃÜÂë²Á³ı
+		// å°†åŸå§‹Adminå¯¹è±¡ä¸­çš„å¯†ç æ“¦é™¤
 		this.originalAdmin.setUserPswd(null);
 	}
 
-	// ¶ÔÍâÌá¹©µÄ»ñÈ¡Ô­Ê¼Admin¶ÔÏóµÄgetXxx()·½·¨
+	// å¯¹å¤–æä¾›çš„è·å–åŸå§‹Adminå¯¹è±¡çš„getXxx()æ–¹æ³•
 	public Admin getOriginalAdmin() {
 		return originalAdmin;
 	}

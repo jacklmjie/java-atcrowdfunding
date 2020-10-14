@@ -204,13 +204,13 @@ public abstract class AbstractAuthorizeTag {
 			throws IOException {
 		// ApplicationContext appContext = SecurityWebApplicationContextUtils.findRequiredWebApplicationContext(getServletContext());
 		
-		// 1.获取ServletContext对象
+		// 1.鑾峰彇ServletContext瀵硅薄
 		ServletContext servletContext = getServletContext();
 		
-		// 2.拼接SpringMVC在ServletContext域中的属性名
+		// 2.鎷兼帴SpringMVC鍦⊿ervletContext鍩熶腑鐨勫睘鎬у悕
 		String attrName = FrameworkServlet.SERVLET_CONTEXT_PREFIX + "springDispatcherServlet";
 		
-		// 3.从ServletContext域中获取IOC容器对象
+		// 3.浠嶴ervletContext鍩熶腑鑾峰彇IOC瀹瑰櫒瀵硅薄
 		ApplicationContext appContext = (ApplicationContext) servletContext.getAttribute(attrName);
 		
 		Map<String, SecurityExpressionHandler> handlers = appContext

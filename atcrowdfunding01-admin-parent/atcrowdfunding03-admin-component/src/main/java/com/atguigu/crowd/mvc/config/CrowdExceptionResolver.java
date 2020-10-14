@@ -18,11 +18,11 @@ import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;
 import com.google.gson.Gson;
 
-// @ControllerAdvice±íÊ¾µ±Ç°ÀàÊÇÒ»¸ö»ùÓÚ×¢½âµÄÒì³£´¦ÀíÆ÷Àà
+// @ControllerAdviceè¡¨ç¤ºå½“å‰ç±»æ˜¯ä¸€ä¸ªåŸºäºæ³¨è§£çš„å¼‚å¸¸å¤„ç†å™¨ç±»
 @ControllerAdvice
 public class CrowdExceptionResolver {
 
-	//µÇÂ¼Ê§°Ü
+	//ç™»å½•å¤±è´¥
 	@ExceptionHandler(value = LoginFailedException.class)
 	public ModelAndView resolveLoginFailedException(LoginFailedException exception, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -32,7 +32,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
-	//Î´µÇÂ¼£¬Ìø×ªµÇÂ¼Ò³Ãæ£¬Ê¹ÓÃspring securityºóÒÑÊ§Ğ§
+	//æœªç™»å½•ï¼Œè·³è½¬ç™»å½•é¡µé¢ï¼Œä½¿ç”¨spring securityåå·²å¤±æ•ˆ
 	@ExceptionHandler(value = AccessForbiddenException.class)
 	public ModelAndView resolveAccessForbiddenException(AccessForbiddenException exception, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -42,7 +42,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 	
-	//Ã»ÓĞÈ¨ÏŞ
+	//æ²¡æœ‰æƒé™
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView resolveException(
 			Exception exception,
@@ -55,7 +55,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
-	//Ìí¼ÓÕËºÅÒÑ¾­´æÔÚ
+	//æ·»åŠ è´¦å·å·²ç»å­˜åœ¨
 	@ExceptionHandler(value = LoginAcctAlreadyInUseException.class)
 	public ModelAndView resolveLoginAcctAlreadyInUseException(LoginAcctAlreadyInUseException exception,
 			HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -65,7 +65,7 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
-	//¸üĞÂÕËºÅÒÑ¾­´æÔÚ
+	//æ›´æ–°è´¦å·å·²ç»å­˜åœ¨
 	@ExceptionHandler(value = LoginAcctAlreadyInUseForUpdateException.class)
 	public ModelAndView resolveLoginAcctAlreadyInUseForUpdateException(
 			LoginAcctAlreadyInUseForUpdateException exception, HttpServletRequest request, HttpServletResponse response)
@@ -76,53 +76,53 @@ public class CrowdExceptionResolver {
 		return commonResolve(viewName, exception, request, response);
 	}
 
-	// @ExceptionHandler½«Ò»¸ö¾ßÌåµÄÒì³£ÀàĞÍºÍÒ»¸ö·½·¨¹ØÁªÆğÀ´
+	// @ExceptionHandlerå°†ä¸€ä¸ªå…·ä½“çš„å¼‚å¸¸ç±»å‹å’Œä¸€ä¸ªæ–¹æ³•å…³è”èµ·æ¥
 	private ModelAndView commonResolve(
 
-			// Òì³£´¦ÀíÍê³ÉºóÒªÈ¥µÄÒ³Ãæ
+			// å¼‚å¸¸å¤„ç†å®Œæˆåè¦å»çš„é¡µé¢
 			String viewName,
 
-			// Êµ¼Ê²¶»ñµ½µÄÒì³£ÀàĞÍ
+			// å®é™…æ•è·åˆ°çš„å¼‚å¸¸ç±»å‹
 			Exception exception,
 
-			// µ±Ç°ÇëÇó¶ÔÏó
+			// å½“å‰è¯·æ±‚å¯¹è±¡
 			HttpServletRequest request,
 
-			// µ±Ç°ÏìÓ¦¶ÔÏó
+			// å½“å‰å“åº”å¯¹è±¡
 			HttpServletResponse response) throws IOException {
 
-		// 1.ÅĞ¶Ïµ±Ç°ÇëÇóÀàĞÍ
+		// 1.åˆ¤æ–­å½“å‰è¯·æ±‚ç±»å‹
 		boolean judgeResult = CrowdUtil.judgeRequestType(request);
 
-		// 2.Èç¹ûÊÇAjaxÇëÇó
+		// 2.å¦‚æœæ˜¯Ajaxè¯·æ±‚
 		if (judgeResult) {
 
-			// 3.´´½¨ResultEntity¶ÔÏó
+			// 3.åˆ›å»ºResultEntityå¯¹è±¡
 			ResultEntity<Object> resultEntity = ResultEntity.failed(exception.getMessage());
 
-			// 4.´´½¨Gson¶ÔÏó
+			// 4.åˆ›å»ºGsonå¯¹è±¡
 			Gson gson = new Gson();
 
-			// 5.½«ResultEntity¶ÔÏó×ª»»ÎªJSON×Ö·û´®
+			// 5.å°†ResultEntityå¯¹è±¡è½¬æ¢ä¸ºJSONå­—ç¬¦ä¸²
 			String json = gson.toJson(resultEntity);
 
-			// 6.½«JSON×Ö·û´®×÷ÎªÏìÓ¦Ìå·µ»Ø¸øä¯ÀÀÆ÷
+			// 6.å°†JSONå­—ç¬¦ä¸²ä½œä¸ºå“åº”ä½“è¿”å›ç»™æµè§ˆå™¨
 			response.getWriter().write(json);
 
-			// 7.ÓÉÓÚÉÏÃæÒÑ¾­Í¨¹ıÔ­ÉúµÄresponse¶ÔÏó·µ»ØÁËÏìÓ¦£¬ËùÒÔ²»Ìá¹©ModelAndView¶ÔÏó
+			// 7.ç”±äºä¸Šé¢å·²ç»é€šè¿‡åŸç”Ÿçš„responseå¯¹è±¡è¿”å›äº†å“åº”ï¼Œæ‰€ä»¥ä¸æä¾›ModelAndViewå¯¹è±¡
 			return null;
 		}
 
-		// 8.Èç¹û²»ÊÇAjaxÇëÇóÔò´´½¨ModelAndView¶ÔÏó
+		// 8.å¦‚æœä¸æ˜¯Ajaxè¯·æ±‚åˆ™åˆ›å»ºModelAndViewå¯¹è±¡
 		ModelAndView modelAndView = new ModelAndView();
 
-		// 9.½«Exception¶ÔÏó´æÈëÄ£ĞÍ
+		// 9.å°†Exceptionå¯¹è±¡å­˜å…¥æ¨¡å‹
 		modelAndView.addObject(CrowdConstant.ATTR_NAME_EXCEPTION, exception);
 
-		// 10.ÉèÖÃ¶ÔÓ¦µÄÊÓÍ¼Ãû³Æ
+		// 10.è®¾ç½®å¯¹åº”çš„è§†å›¾åç§°
 		modelAndView.setViewName(viewName);
 
-		// 11.·µ»ØmodelAndView¶ÔÏó
+		// 11.è¿”å›modelAndViewå¯¹è±¡
 		return modelAndView;
 	}
 

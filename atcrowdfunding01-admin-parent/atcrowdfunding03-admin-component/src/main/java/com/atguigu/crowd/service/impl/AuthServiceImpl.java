@@ -27,17 +27,17 @@ public class AuthServiceImpl implements AuthService {
 
 	public void saveRoleAuthRelathinship(Map<String, List<Integer>> map) {
 
-		// 1.»ñÈ¡roleIdµÄÖµ
+		// 1.è·å–roleIdçš„å€¼
 		List<Integer> roleIdList = map.get("roleId");
 		Integer roleId = roleIdList.get(0);
 
-		// 2.É¾³ı¾É¹ØÁª¹ØÏµÊı¾İ
+		// 2.åˆ é™¤æ—§å…³è”å…³ç³»æ•°æ®
 		authMapper.deleteOldRelationship(roleId);
 
-		// 3.»ñÈ¡authIdList
+		// 3.è·å–authIdList
 		List<Integer> authIdList = map.get("authIdArray");
 
-		// 4.ÅĞ¶ÏauthIdListÊÇ·ñÓĞĞ§
+		// 4.åˆ¤æ–­authIdListæ˜¯å¦æœ‰æ•ˆ
 		if (authIdList != null && authIdList.size() > 0) {
 			authMapper.insertNewRelationship(roleId, authIdList);
 		}

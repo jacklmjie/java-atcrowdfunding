@@ -1,7 +1,7 @@
 package com.atguigu.crowd.exception;
 
 /**
- * 保存或更新Admin时如果检测到登录账号重复抛出这个异常
+ * 淇濆瓨鎴栨洿鏂癆dmin鏃跺鏋滄娴嬪埌鐧诲綍璐﹀彿閲嶅鎶涘嚭杩欎釜寮傚父
  * 
  * @author Lenovo
  *

@@ -32,25 +32,25 @@ public class CrowdUserDetailsService implements UserDetailsService {
 	
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		// 1.¸ù¾İÕËºÅÃû³Æ²éÑ¯Admin¶ÔÏó
+		// 1.æ ¹æ®è´¦å·åç§°æŸ¥è¯¢Adminå¯¹è±¡
 		Admin admin = adminService.getAdminByLoginAcct(username);
 		
-		// 2.»ñÈ¡adminId
+		// 2.è·å–adminId
 		Integer adminId = admin.getId();
 
-		// 3.¸ù¾İadminId²éÑ¯½ÇÉ«ĞÅÏ¢
+		// 3.æ ¹æ®adminIdæŸ¥è¯¢è§’è‰²ä¿¡æ¯
 		List<Role> assignedRoleList = roleService.getAssignedRole(adminId);
 
-		// 4.¸ù¾İadminId²éÑ¯È¨ÏŞĞÅÏ¢
+		// 4.æ ¹æ®adminIdæŸ¥è¯¢æƒé™ä¿¡æ¯
 		List<String> authNameList = authService.getAssignedAuthNameByAdminId(adminId);
 
-		// 5.´´½¨¼¯ºÏ¶ÔÏóÓÃÀ´´æ´¢GrantedAuthority
+		// 5.åˆ›å»ºé›†åˆå¯¹è±¡ç”¨æ¥å­˜å‚¨GrantedAuthority
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-		// 6.±éÀúassignedRoleList´æÈë½ÇÉ«ĞÅÏ¢
+		// 6.éå†assignedRoleListå­˜å…¥è§’è‰²ä¿¡æ¯
 		for (Role role : assignedRoleList) {
 
-			// ×¢Òâ£º²»ÒªÍüÁË¼ÓÇ°×º£¡
+			// æ³¨æ„ï¼šä¸è¦å¿˜äº†åŠ å‰ç¼€ï¼
 			String roleName = "ROLE_" + role.getName();
 
 			SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(roleName);
@@ -58,7 +58,7 @@ public class CrowdUserDetailsService implements UserDetailsService {
 			authorities.add(simpleGrantedAuthority);
 		}
 
-		// 7.±éÀúauthNameList´æÈëÈ¨ÏŞĞÅÏ¢
+		// 7.éå†authNameListå­˜å…¥æƒé™ä¿¡æ¯
 		for (String authName : authNameList) {
 
 			SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(authName);
@@ -66,7 +66,7 @@ public class CrowdUserDetailsService implements UserDetailsService {
 			authorities.add(simpleGrantedAuthority);
 		}
 
-		// 8.·â×°SecurityAdmin¶ÔÏó
+		// 8.å°è£…SecurityAdminå¯¹è±¡
 		SecurityAdmin securityAdmin = new SecurityAdmin(admin, authorities);
 
 		return securityAdmin;

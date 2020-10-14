@@ -16,21 +16,21 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
-		// 1.通过request对象获取Session对象
+		// 1.閫氳繃request瀵硅薄鑾峰彇Session瀵硅薄
 		HttpSession session = request.getSession();
 
-		// 2.尝试从Session域中获取Admin对象
+		// 2.灏濊瘯浠嶴ession鍩熶腑鑾峰彇Admin瀵硅薄
 		Admin admin = (Admin) session.getAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN);
 
-		// 3.判断admin对象是否为空
+		// 3.鍒ゆ柇admin瀵硅薄鏄惁涓虹┖
 		if (admin == null) {
 
-			// 4.抛出异常
+			// 4.鎶涘嚭寮傚父
 			throw new AccessForbiddenException(CrowdConstant.MESSAGE_ACCESS_FORBIDEN);
 
 		}
 
-		// 5.如果Admin对象不为null，则返回true放行
+		// 5.濡傛灉Admin瀵硅薄涓嶄负null锛屽垯杩斿洖true鏀捐
 		return true;
 	}
 }

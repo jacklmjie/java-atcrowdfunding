@@ -48,7 +48,7 @@ public class RoleHandler {
 		return ResultEntity.successWithoutData();
 	}
 
-	@PreAuthorize("hasRole('²¿³¤')")
+	@PreAuthorize("hasRole('éƒ¨é•¿')")
 	@ResponseBody
 	@RequestMapping("/role/get/page/info.json")
 	public ResultEntity<PageInfo<Role>> getPageInfo(
@@ -56,10 +56,10 @@ public class RoleHandler {
 			@RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
 			@RequestParam(value = "keyword", defaultValue = "") String keyword) {
 
-		// µ÷ÓÃService·½·¨»ñÈ¡·ÖÒ³Êı¾İ
+		// è°ƒç”¨Serviceæ–¹æ³•è·å–åˆ†é¡µæ•°æ®
 		PageInfo<Role> pageInfo = roleService.getPageInfo(pageNum, pageSize, keyword);
 
-		// ·â×°µ½ResultEntity¶ÔÏóÖĞ·µ»Ø£¨Èç¹ûÉÏÃæµÄ²Ù×÷Å×³öÒì³££¬½»¸øÒì³£Ó³Éä»úÖÆ´¦Àí£©
+		// å°è£…åˆ°ResultEntityå¯¹è±¡ä¸­è¿”å›ï¼ˆå¦‚æœä¸Šé¢çš„æ“ä½œæŠ›å‡ºå¼‚å¸¸ï¼Œäº¤ç»™å¼‚å¸¸æ˜ å°„æœºåˆ¶å¤„ç†ï¼‰
 		return ResultEntity.successWithData(pageInfo);
 	}
 }

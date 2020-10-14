@@ -25,7 +25,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	public void updateMenu(Menu menu) {
-		// 由于pid没有传入，一定要使用有选择的更新，保证“pid”字段不会被置空
+		// 鐢变簬pid娌℃湁浼犲叆锛屼竴瀹氳浣跨敤鏈夐�夋嫨鐨勬洿鏂帮紝淇濊瘉鈥減id鈥濆瓧娈典笉浼氳缃┖
 		menuMapper.updateByPrimaryKeySelective(menu);
 	}
 

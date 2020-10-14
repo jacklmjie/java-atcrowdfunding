@@ -61,8 +61,8 @@ public class AssignHandler {
 	public String saveAdminRoleRelationship(@RequestParam("adminId") Integer adminId,
 			@RequestParam("pageNum") Integer pageNum, @RequestParam("keyword") String keyword,
 
-			// ÎÒÃÇÔÊĞíÓÃ»§ÔÚÒ³ÃæÉÏÈ¡ÏûËùÓĞÒÑ·ÖÅä½ÇÉ«ÔÙÌá½»±íµ¥£¬ËùÒÔ¿ÉÒÔ²»Ìá¹©roleIdListÇëÇó²ÎÊı
-			// ÉèÖÃrequired=false±íÊ¾Õâ¸öÇëÇó²ÎÊı²»ÊÇ±ØĞëµÄ
+			// æˆ‘ä»¬å…è®¸ç”¨æˆ·åœ¨é¡µé¢ä¸Šå–æ¶ˆæ‰€æœ‰å·²åˆ†é…è§’è‰²å†æäº¤è¡¨å•ï¼Œæ‰€ä»¥å¯ä»¥ä¸æä¾›roleIdListè¯·æ±‚å‚æ•°
+			// è®¾ç½®required=falseè¡¨ç¤ºè¿™ä¸ªè¯·æ±‚å‚æ•°ä¸æ˜¯å¿…é¡»çš„
 			@RequestParam(value = "roleIdList", required = false) List<Integer> roleIdList) {
 
 		adminService.saveAdminRoleRelationship(adminId, roleIdList);
@@ -79,13 +79,13 @@ public class AssignHandler {
 
 	) {
 
-		// 1.²éÑ¯ÒÑ·ÖÅä½ÇÉ«
+		// 1.æŸ¥è¯¢å·²åˆ†é…è§’è‰²
 		List<Role> assignedRoleList = roleService.getAssignedRole(adminId);
 
-		// 2.²éÑ¯Î´·ÖÅä½ÇÉ«
+		// 2.æŸ¥è¯¢æœªåˆ†é…è§’è‰²
 		List<Role> unAssignedRoleList = roleService.getUnAssignedRole(adminId);
 
-		// 3.´æÈëÄ£ĞÍ£¨±¾ÖÊÉÏÆäÊµÊÇ£ºrequest.setAttribute("attrName",attrValue);
+		// 3.å­˜å…¥æ¨¡å‹ï¼ˆæœ¬è´¨ä¸Šå…¶å®æ˜¯ï¼šrequest.setAttribute("attrName",attrValue);
 		modelMap.addAttribute("assignedRoleList", assignedRoleList);
 		modelMap.addAttribute("unAssignedRoleList", unAssignedRoleList);
 

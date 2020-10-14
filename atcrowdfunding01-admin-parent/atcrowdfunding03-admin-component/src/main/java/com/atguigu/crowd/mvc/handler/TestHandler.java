@@ -86,7 +86,7 @@ public class TestHandler {
 
 		logger.info(student.toString());
 
-		// ½«¡°²éÑ¯¡±µ½µÄStudent¶ÔÏó·â×°µ½ResultEntityÖĞ·µ»Ø
+		// å°†â€œæŸ¥è¯¢â€åˆ°çš„Studentå¯¹è±¡å°è£…åˆ°ResultEntityä¸­è¿”å›
 		ResultEntity<Student> resultEntity = ResultEntity.successWithData(student);
 
 		return resultEntity;

@@ -20,10 +20,10 @@ import com.atguigu.crowd.mapper.AdminMapper;
 import com.atguigu.crowd.mapper.RoleMapper;
 import com.atguigu.crowd.service.api.AdminService;
 
-//Ö¸¶¨ Spring ¸ø Junit Ìá¹©µÄÔËĞĞÆ÷Àà
+//æŒ‡å®š Spring ç»™ Junit æä¾›çš„è¿è¡Œå™¨ç±»
 @RunWith(SpringJUnit4ClassRunner.class)
 
-//¼ÓÔØ Spring ÅäÖÃÎÄ¼şµÄ×¢½â
+//åŠ è½½ Spring é…ç½®æ–‡ä»¶çš„æ³¨è§£
 @ContextConfiguration(locations = { "classpath:spring-persist-mybatis.xml", "classpath:spring-persist-tx.xml" })
 public class CrowdTest {
 
@@ -65,32 +65,32 @@ public class CrowdTest {
 
 	@Test
 	public void testTx() {
-		Admin admin = new Admin(null, "jack2", "123456", "½Ü2", "jack2.qq.com", null);
+		Admin admin = new Admin(null, "jack2", "123456", "æ°2", "jack2.qq.com", null);
 		adminService.saveAdmin(admin);
 	}
 
 	@Test
 	public void tetsLog() {
-		// »ñÈ¡ÈÕÖ¾¼ÇÂ¼¶ÔÏó
+		// è·å–æ—¥å¿—è®°å½•å¯¹è±¡
 		Logger logger = LoggerFactory.getLogger(CrowdTest.class);
-		// °´ÕÕ Debug ¼¶±ğ´òÓ¡ÈÕÖ¾
-		logger.debug("debugÏûÏ¢");
-		logger.info("infoÏûÏ¢");
+		// æŒ‰ç…§ Debug çº§åˆ«æ‰“å°æ—¥å¿—
+		logger.debug("debugæ¶ˆæ¯");
+		logger.info("infoæ¶ˆæ¯");
 		;
 	}
 
 	@Test
 	public void testInsertAdmin() {
-		Admin admin = new Admin(null, "jack", "123456", "½Ü", "jack.qq.com", null);
+		Admin admin = new Admin(null, "jack", "123456", "æ°", "jack.qq.com", null);
 		int count = adminMapper.insert(admin);
-		System.out.println("ÊÜÓ°ÏìµÄĞĞÊı" + count);
+		System.out.println("å—å½±å“çš„è¡Œæ•°" + count);
 	}
 
 	@Test
 	public void testDataSource() throws SQLException {
-		// 1.Í¨¹ıÊı¾İÔ´¶ÔÏó»ñÈ¡Êı¾İÔ´Á¬½Ó
+		// 1.é€šè¿‡æ•°æ®æºå¯¹è±¡è·å–æ•°æ®æºè¿æ¥
 		Connection connection = dataSource.getConnection();
-		// 2.´òÓ¡Êı¾İ¿âÁ¬½Ó
+		// 2.æ‰“å°æ•°æ®åº“è¿æ¥
 		System.out.println(connection);
 	}
 }

@@ -42,20 +42,20 @@ public class AdminServiceImpl implements AdminService {
 
 	public Admin getAdminByLoginAcct(String loginAcct, String userPswd) {
 
-		// 1.¸ù¾İµÇÂ¼ÕËºÅ²éÑ¯Admin¶ÔÏó
-		// ¢Ù´´½¨AdminExample¶ÔÏó
+		// 1.æ ¹æ®ç™»å½•è´¦å·æŸ¥è¯¢Adminå¯¹è±¡
+		// â‘ åˆ›å»ºAdminExampleå¯¹è±¡
 		AdminExample adminExample = new AdminExample();
 
-		// ¢Ú´´½¨Criteria¶ÔÏó
+		// â‘¡åˆ›å»ºCriteriaå¯¹è±¡
 		Criteria criteria = adminExample.createCriteria();
 
-		// ¢ÛÔÚCriteria¶ÔÏóÖĞ·â×°²éÑ¯Ìõ¼ş
+		// â‘¢åœ¨Criteriaå¯¹è±¡ä¸­å°è£…æŸ¥è¯¢æ¡ä»¶
 		criteria.andLoginAcctEqualTo(loginAcct);
 
-		// ¢Üµ÷ÓÃAdminMapperµÄ·½·¨Ö´ĞĞ²éÑ¯
+		// â‘£è°ƒç”¨AdminMapperçš„æ–¹æ³•æ‰§è¡ŒæŸ¥è¯¢
 		List<Admin> list = adminMapper.selectByExample(adminExample);
 
-		// 2.ÅĞ¶ÏAdmin¶ÔÏóÊÇ·ñÎªnull
+		// 2.åˆ¤æ–­Adminå¯¹è±¡æ˜¯å¦ä¸ºnull
 		if (list == null || list.size() == 0) {
 			throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);
 		}
@@ -66,37 +66,37 @@ public class AdminServiceImpl implements AdminService {
 
 		Admin admin = list.get(0);
 
-		// 3.Èç¹ûAdmin¶ÔÏóÎªnullÔòÅ×³öÒì³£
+		// 3.å¦‚æœAdminå¯¹è±¡ä¸ºnullåˆ™æŠ›å‡ºå¼‚å¸¸
 		if (admin == null) {
 			throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);
 		}
 
-		// 4.Èç¹ûAdmin¶ÔÏó²»ÎªnullÔò½«Êı¾İ¿âÃÜÂë´ÓAdmin¶ÔÏóÖĞÈ¡³ö
+		// 4.å¦‚æœAdminå¯¹è±¡ä¸ä¸ºnullåˆ™å°†æ•°æ®åº“å¯†ç ä»Adminå¯¹è±¡ä¸­å–å‡º
 		String userPswdDB = admin.getUserPswd();
 
-		// 5.½«±íµ¥Ìá½»µÄÃ÷ÎÄÃÜÂë½øĞĞ¼ÓÃÜ
+		// 5.å°†è¡¨å•æäº¤çš„æ˜æ–‡å¯†ç è¿›è¡ŒåŠ å¯†
 		String userPswdForm = CrowdUtil.md5(userPswd);
 
-		// 6.¶ÔÃÜÂë½øĞĞ±È½Ï
+		// 6.å¯¹å¯†ç è¿›è¡Œæ¯”è¾ƒ
 		if (!Objects.equals(userPswdDB, userPswdForm)) {
-			// 7.Èç¹û±È½Ï½á¹ûÊÇ²»Ò»ÖÂÔòÅ×³öÒì³£
+			// 7.å¦‚æœæ¯”è¾ƒç»“æœæ˜¯ä¸ä¸€è‡´åˆ™æŠ›å‡ºå¼‚å¸¸
 			throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);
 		}
 
-		// 8.Èç¹ûÒ»ÖÂÔò·µ»ØAdmin¶ÔÏó
+		// 8.å¦‚æœä¸€è‡´åˆ™è¿”å›Adminå¯¹è±¡
 		return admin;
 	}
 
 	public PageInfo<Admin> getPageInfo(String keyword, Integer pageNum, Integer pageSize) {
-		// 1.µ÷ÓÃPageHelperµÄ¾²Ì¬·½·¨¿ªÆô·ÖÒ³¹¦ÄÜ
-		// ÕâÀï³ä·ÖÌåÏÖÁËPageHelperµÄ¡°·ÇÇÖÈëÊ½¡±Éè¼Æ£ºÔ­±¾Òª×öµÄ²éÑ¯²»±ØÓĞÈÎºÎĞŞ¸Ä
+		// 1.è°ƒç”¨PageHelperçš„é™æ€æ–¹æ³•å¼€å¯åˆ†é¡µåŠŸèƒ½
+		// è¿™é‡Œå……åˆ†ä½“ç°äº†PageHelperçš„â€œéä¾µå…¥å¼â€è®¾è®¡ï¼šåŸæœ¬è¦åšçš„æŸ¥è¯¢ä¸å¿…æœ‰ä»»ä½•ä¿®æ”¹
 		String orderBy = "Id desc";
 		PageHelper.startPage(pageNum, pageSize, orderBy);
 
-		// 2.Ö´ĞĞ²éÑ¯
+		// 2.æ‰§è¡ŒæŸ¥è¯¢
 		List<Admin> list = adminMapper.selectAdminByKeyword(keyword);
 
-		// 3.·â×°µ½PageInfo¶ÔÏóÖĞ
+		// 3.å°è£…åˆ°PageInfoå¯¹è±¡ä¸­
 		return new PageInfo<Admin>(list);
 	}
 
@@ -106,25 +106,25 @@ public class AdminServiceImpl implements AdminService {
 
 	public void saveAdmin(Admin admin) {
 
-		// 1.ÃÜÂë¼ÓÃÜ
+		// 1.å¯†ç åŠ å¯†
 		String userPswd = admin.getUserPswd();
 		// userPswd = CrowdUtil.md5(userPswd);
 		userPswd = passwordEncoder.encode(userPswd);
 		admin.setUserPswd(userPswd);
 
-		// 2.Éú³É´´½¨Ê±¼ä
+		// 2.ç”Ÿæˆåˆ›å»ºæ—¶é—´
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String createTime = format.format(date);
 		admin.setCreateTime(createTime);
 
-		// 3.Ö´ĞĞ±£´æ
+		// 3.æ‰§è¡Œä¿å­˜
 		try {
 			adminMapper.insert(admin);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			logger.info("Òì³£È«ÀàÃû=" + e.getClass().getName());
+			logger.info("å¼‚å¸¸å…¨ç±»å=" + e.getClass().getName());
 
 			if (e instanceof DuplicateKeyException) {
 				throw new LoginAcctAlreadyInUseException(CrowdConstant.MESSAGE_LOGIN_ACCT_ALREADY_IN_USE);
@@ -138,13 +138,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	public void update(Admin admin) {
-		// ¡°Selective¡±±íÊ¾ÓĞÑ¡ÔñµÄ¸üĞÂ£¬¶ÔÓÚnullÖµµÄ×Ö¶Î²»¸üĞÂ
+		// â€œSelectiveâ€è¡¨ç¤ºæœ‰é€‰æ‹©çš„æ›´æ–°ï¼Œå¯¹äºnullå€¼çš„å­—æ®µä¸æ›´æ–°
 		try {
 			adminMapper.updateByPrimaryKeySelective(admin);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			logger.info("Òì³£È«ÀàÃû=" + e.getClass().getName());
+			logger.info("å¼‚å¸¸å…¨ç±»å=" + e.getClass().getName());
 
 			if (e instanceof DuplicateKeyException) {
 				throw new LoginAcctAlreadyInUseForUpdateException(CrowdConstant.MESSAGE_LOGIN_ACCT_ALREADY_IN_USE);
@@ -153,10 +153,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	public void saveAdminRoleRelationship(Integer adminId, List<Integer> roleIdList) {
-		// 1.¸ù¾İadminIdÉ¾³ı¾ÉµÄ¹ØÁª¹ØÏµÊı¾İ
+		// 1.æ ¹æ®adminIdåˆ é™¤æ—§çš„å…³è”å…³ç³»æ•°æ®
 		adminMapper.deleteOLdRelationship(adminId);
 
-		// 2.¸ù¾İroleIdListºÍadminId±£´æĞÂµÄ¹ØÁª¹ØÏµ
+		// 2.æ ¹æ®roleIdListå’ŒadminIdä¿å­˜æ–°çš„å…³è”å…³ç³»
 		if (roleIdList != null && roleIdList.size() > 0) {
 			adminMapper.insertNewRelationship(adminId, roleIdList);
 		}

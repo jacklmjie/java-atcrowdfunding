@@ -20,13 +20,13 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 import com.atguigu.crowd.constant.CrowdConstant;
 
-//±íÊ¾µ±Ç°ÀàÊÇÒ»¸öÅäÖÃÀà
+//è¡¨ç¤ºå½“å‰ç±»æ˜¯ä¸€ä¸ªé…ç½®ç±»
 @Configuration
 
-//ÆôÓÃWeb»·¾³ÏÂÈ¨ÏŞ¿ØÖÆ¹¦ÄÜ
+//å¯ç”¨Webç¯å¢ƒä¸‹æƒé™æ§åˆ¶åŠŸèƒ½
 @EnableWebSecurity
 
-//ÆôÓÃÈ«¾Ö·½·¨È¨ÏŞ¿ØÖÆ¹¦ÄÜ£¬²¢ÇÒÉèÖÃprePostEnabled = true¡£±£Ö¤@PreAuthority¡¢@PostAuthority¡¢@PreFilter¡¢@PostFilterÉúĞ§
+//å¯ç”¨å…¨å±€æ–¹æ³•æƒé™æ§åˆ¶åŠŸèƒ½ï¼Œå¹¶ä¸”è®¾ç½®prePostEnabled = trueã€‚ä¿è¯@PreAuthorityã€@PostAuthorityã€@PreFilterã€@PostFilterç”Ÿæ•ˆ
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -35,7 +35,7 @@ public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/*
 	 * 
-	 * ÔÚÕâÀïÉùÃ÷£¬ÎŞ·¨ÔÚXxxServiceÖĞ×°Åä
+	 * åœ¨è¿™é‡Œå£°æ˜ï¼Œæ— æ³•åœ¨XxxServiceä¸­è£…é…
 	 * 
 	 * @Bean public BCryptPasswordEncoder getPasswordEncoder() { return new
 	 * BCryptPasswordEncoder(); }
@@ -47,41 +47,41 @@ public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder builder) throws Exception {
 
-		// ÁÙÊ±Ê¹ÓÃÄÚ´æ°æµÇÂ¼µÄÄ£Ê½²âÊÔ´úÂë
+		// ä¸´æ—¶ä½¿ç”¨å†…å­˜ç‰ˆç™»å½•çš„æ¨¡å¼æµ‹è¯•ä»£ç 
 		// builder.inMemoryAuthentication().withUser("jack").password("123123").roles("ADMIN");
 
-		// ÕıÊ½¹¦ÄÜÖĞÊ¹ÓÃ»ùÓÚÊı¾İ¿âµÄÈÏÖ¤
+		// æ­£å¼åŠŸèƒ½ä¸­ä½¿ç”¨åŸºäºæ•°æ®åº“çš„è®¤è¯
 		builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 
 	@Override
 	public void configure(HttpSecurity security) throws Exception {
 
-		security.authorizeRequests() // ¶ÔÇëÇó½øĞĞÊÚÈ¨
-				.antMatchers("/admin/to/login/page.html") // Õë¶ÔµÇÂ¼Ò³½øĞĞÉèÖÃ
-				.permitAll() // ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/bootstrap/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/crowd/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/css/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/fonts/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/img/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/jquery/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/layer/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/script/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll() // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.antMatchers("/ztree/**") // Õë¶Ô¾²Ì¬×ÊÔ´½øĞĞÉèÖÃ£¬ÎŞÌõ¼ş·ÃÎÊ
-				.permitAll().antMatchers("/admin/get/page.html") // Õë¶Ô·ÖÒ³ÏÔÊ¾AdminÊı¾İÉè¶¨·ÃÎÊ¿ØÖÆ
-				//.hasRole("¾­Àí") // ÒªÇó¾ß±¸¾­Àí½ÇÉ«
-				.access("hasRole('¾­Àí') OR hasAuthority('user:get')")	// ÒªÇó¾ß±¸¡°¾­Àí¡±½ÇÉ«ºÍ¡°user:get¡±È¨ÏŞ¶şÕßÖ®Ò»
-				.anyRequest() // ÆäËûÈÎÒâÇëÇó
-				.authenticated() // ÈÏÖ¤ºó·ÃÎÊ
+		security.authorizeRequests() // å¯¹è¯·æ±‚è¿›è¡Œæˆæƒ
+				.antMatchers("/admin/to/login/page.html") // é’ˆå¯¹ç™»å½•é¡µè¿›è¡Œè®¾ç½®
+				.permitAll() // æ— æ¡ä»¶è®¿é—®
+				.antMatchers("/bootstrap/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/crowd/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/css/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/fonts/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/img/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/jquery/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/layer/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/script/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll() // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.antMatchers("/ztree/**") // é’ˆå¯¹é™æ€èµ„æºè¿›è¡Œè®¾ç½®ï¼Œæ— æ¡ä»¶è®¿é—®
+				.permitAll().antMatchers("/admin/get/page.html") // é’ˆå¯¹åˆ†é¡µæ˜¾ç¤ºAdminæ•°æ®è®¾å®šè®¿é—®æ§åˆ¶
+				//.hasRole("ç»ç†") // è¦æ±‚å…·å¤‡ç»ç†è§’è‰²
+				.access("hasRole('ç»ç†') OR hasAuthority('user:get')")	// è¦æ±‚å…·å¤‡â€œç»ç†â€è§’è‰²å’Œâ€œuser:getâ€æƒé™äºŒè€…ä¹‹ä¸€
+				.anyRequest() // å…¶ä»–ä»»æ„è¯·æ±‚
+				.authenticated() // è®¤è¯åè®¿é—®
 				.and()
 				.exceptionHandling()
 				.accessDeniedHandler(new AccessDeniedHandler() {
@@ -91,17 +91,17 @@ public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 						request.getRequestDispatcher("/WEB-INF/system-error.jsp").forward(request, response);
 					}
 				})
-				.and().csrf() // ·À¿çÕ¾ÇëÇóÎ±Ôì¹¦ÄÜ
-				.disable() // ½ûÓÃ
-				.formLogin() // ¿ªÆô±íµ¥µÇÂ¼µÄ¹¦ÄÜ
-				.loginPage("/admin/to/login/page.html") // Ö¸¶¨µÇÂ¼Ò³Ãæ
-				.loginProcessingUrl("/security/do/login.html") // Ö¸¶¨´¦ÀíµÇÂ¼ÇëÇóµÄµØÖ·
-				.defaultSuccessUrl("/admin/to/main/page.html") // Ö¸¶¨µÇÂ¼³É¹¦ºóÇ°ÍùµÄµØÖ·
-				.usernameParameter("loginAcct") // ÕËºÅµÄÇëÇó²ÎÊıÃû³Æ
-				.passwordParameter("userPswd") // ÃÜÂëµÄÇëÇó²ÎÊıÃû³Æ
-				.and().logout() // ¿ªÆôÍË³öµÇÂ¼¹¦ÄÜ
-				.logoutUrl("/seucrity/do/logout.html") // Ö¸¶¨ÍË³öµÇÂ¼µØÖ·
-				.logoutSuccessUrl("/admin/to/login/page.html") // Ö¸¶¨ÍË³ö³É¹¦ÒÔºóÇ°ÍùµÄµØÖ·
+				.and().csrf() // é˜²è·¨ç«™è¯·æ±‚ä¼ªé€ åŠŸèƒ½
+				.disable() // ç¦ç”¨
+				.formLogin() // å¼€å¯è¡¨å•ç™»å½•çš„åŠŸèƒ½
+				.loginPage("/admin/to/login/page.html") // æŒ‡å®šç™»å½•é¡µé¢
+				.loginProcessingUrl("/security/do/login.html") // æŒ‡å®šå¤„ç†ç™»å½•è¯·æ±‚çš„åœ°å€
+				.defaultSuccessUrl("/admin/to/main/page.html") // æŒ‡å®šç™»å½•æˆåŠŸåå‰å¾€çš„åœ°å€
+				.usernameParameter("loginAcct") // è´¦å·çš„è¯·æ±‚å‚æ•°åç§°
+				.passwordParameter("userPswd") // å¯†ç çš„è¯·æ±‚å‚æ•°åç§°
+				.and().logout() // å¼€å¯é€€å‡ºç™»å½•åŠŸèƒ½
+				.logoutUrl("/seucrity/do/logout.html") // æŒ‡å®šé€€å‡ºç™»å½•åœ°å€
+				.logoutSuccessUrl("/admin/to/login/page.html") // æŒ‡å®šé€€å‡ºæˆåŠŸä»¥åå‰å¾€çš„åœ°å€
 		;
 	}
 }

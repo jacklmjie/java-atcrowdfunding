@@ -1,7 +1,7 @@
 package com.atguigu.crowd.exception;
 
 /**
- * 登录失败后抛出的异常
+ * 鐧诲綍澶辫触鍚庢姏鍑虹殑寮傚父
  * 
  * @author Lenovo
  *

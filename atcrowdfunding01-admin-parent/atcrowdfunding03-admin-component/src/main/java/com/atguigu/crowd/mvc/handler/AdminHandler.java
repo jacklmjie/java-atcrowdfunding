@@ -31,11 +31,11 @@ public class AdminHandler {
 	public String doLogin(@RequestParam("loginAcct") String loginAcct, @RequestParam("userPswd") String userPswd,
 			HttpSession session) {
 
-		// µ÷ÓÃService·½·¨Ö´ĞĞµÇÂ¼¼ì²é
-		// Õâ¸ö·½·¨Èç¹ûÄÜ¹»·µ»Øadmin¶ÔÏóËµÃ÷µÇÂ¼³É¹¦£¬Èç¹ûÕËºÅ¡¢ÃÜÂë²»ÕıÈ·Ôò»áÅ×³öÒì³£
+		// è°ƒç”¨Serviceæ–¹æ³•æ‰§è¡Œç™»å½•æ£€æŸ¥
+		// è¿™ä¸ªæ–¹æ³•å¦‚æœèƒ½å¤Ÿè¿”å›adminå¯¹è±¡è¯´æ˜ç™»å½•æˆåŠŸï¼Œå¦‚æœè´¦å·ã€å¯†ç ä¸æ­£ç¡®åˆ™ä¼šæŠ›å‡ºå¼‚å¸¸
 		Admin admin = adminService.getAdminByLoginAcct(loginAcct, userPswd);
 
-		// ½«µÇÂ¼³É¹¦·µ»ØµÄadmin¶ÔÏó´æÈëSessionÓò
+		// å°†ç™»å½•æˆåŠŸè¿”å›çš„adminå¯¹è±¡å­˜å…¥SessionåŸŸ
 		session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN, admin);
 
 		return "redirect:/admin/to/main/page.html";
@@ -44,7 +44,7 @@ public class AdminHandler {
 	@RequestMapping("/admin/do/logout.html")
 	public String doLogout(HttpSession session) {
 
-		// Ç¿ÖÆSessionÊ§Ğ§
+		// å¼ºåˆ¶Sessionå¤±æ•ˆ
 		session.invalidate();
 
 		return "redirect:/admin/to/login/page.html";
@@ -52,17 +52,17 @@ public class AdminHandler {
 
 	@RequestMapping("/admin/get/page.html")
 	public String getPageInfo(
-			// Ê¹ÓÃ@RequestParam×¢½âµÄdefaultValueÊôĞÔ£¬Ö¸¶¨Ä¬ÈÏÖµ£¬ÔÚÇëÇóÖĞÃ»ÓĞĞ¯´ø¶ÔÓ¦²ÎÊıÊ±Ê¹ÓÃÄ¬ÈÏÖµ
-			// keywordÄ¬ÈÏÖµÊ¹ÓÃ¿Õ×Ö·û´®£¬ºÍSQLÓï¾äÅäºÏÊµÏÖÁ½ÖÖÇé¿öÊÊÅä
+			// ä½¿ç”¨@RequestParamæ³¨è§£çš„defaultValueå±æ€§ï¼ŒæŒ‡å®šé»˜è®¤å€¼ï¼Œåœ¨è¯·æ±‚ä¸­æ²¡æœ‰æºå¸¦å¯¹åº”å‚æ•°æ—¶ä½¿ç”¨é»˜è®¤å€¼
+			// keywordé»˜è®¤å€¼ä½¿ç”¨ç©ºå­—ç¬¦ä¸²ï¼Œå’ŒSQLè¯­å¥é…åˆå®ç°ä¸¤ç§æƒ…å†µé€‚é…
 			@RequestParam(value = "keyword", defaultValue = "") String keyword,
-			// pageNumÄ¬ÈÏÖµÊ¹ÓÃ1
+			// pageNumé»˜è®¤å€¼ä½¿ç”¨1
 			@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-			// pageSizeÄ¬ÈÏÖµÊ¹ÓÃ5
+			// pageSizeé»˜è®¤å€¼ä½¿ç”¨5
 			@RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize, ModelMap modelMap) {
-		// µ÷ÓÃService·½·¨»ñÈ¡PageInfo¶ÔÏó
+		// è°ƒç”¨Serviceæ–¹æ³•è·å–PageInfoå¯¹è±¡
 		PageInfo<Admin> pageInfo = adminService.getPageInfo(keyword, pageNum, pageSize);
 
-		// ½«PageInfo¶ÔÏó´æÈëÄ£ĞÍ
+		// å°†PageInfoå¯¹è±¡å­˜å…¥æ¨¡å‹
 		modelMap.addAttribute(CrowdConstant.ATTR_NAME_PAGE_INFO, pageInfo);
 
 		return "admin-page";
@@ -72,10 +72,10 @@ public class AdminHandler {
 	public String remove(@PathVariable("adminId") Integer adminId, @PathVariable("pageNum") Integer pageNum,
 			@PathVariable("keyword") String keyword) {
 
-		// Ö´ĞĞÉ¾³ı
+		// æ‰§è¡Œåˆ é™¤
 		adminService.remove(adminId);
 
-		// Í¬Ê±ÎªÁË±£³ÖÔ­±¾ËùÔÚµÄÒ³ÃæºÍ²éÑ¯¹Ø¼ü´ÊÔÙ¸½¼ÓpageNumºÍkeywordÁ½¸öÇëÇó²ÎÊı
+		// åŒæ—¶ä¸ºäº†ä¿æŒåŸæœ¬æ‰€åœ¨çš„é¡µé¢å’ŒæŸ¥è¯¢å…³é”®è¯å†é™„åŠ pageNumå’Œkeywordä¸¤ä¸ªè¯·æ±‚å‚æ•°
 		return "redirect:/admin/get/page.html?pageNum=" + pageNum + "&keyword=" + keyword;
 	}
 
@@ -94,10 +94,10 @@ public class AdminHandler {
 				ModelMap modelMap
 			) {
 		
-		// 1.¸ù¾İadminId²éÑ¯Admin¶ÔÏó
+		// 1.æ ¹æ®adminIdæŸ¥è¯¢Adminå¯¹è±¡
 		Admin admin = adminService.getAdminById(adminId);
 		
-		// 2.½«Admin¶ÔÏó´æÈëÄ£ĞÍ
+		// 2.å°†Adminå¯¹è±¡å­˜å…¥æ¨¡å‹
 		modelMap.addAttribute("admin", admin);
 		
 		return "admin-edit";
@@ -111,8 +111,8 @@ public class AdminHandler {
 		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
 	}
 	
-	//Ö»·µ»ØÅ¼Êı£¬¶Ô²Ù×÷Ç°½øĞĞ¹ıÂË£¬Ö»ÄÜ²Ù×÷¼¯ºÏ
-	//PostFilter,¶Ô²Ù×÷ºó½øĞĞ¹ıÂË£¬Ö»ÄÜ²Ù×÷¼¯ºÏ
+	//åªè¿”å›å¶æ•°ï¼Œå¯¹æ“ä½œå‰è¿›è¡Œè¿‡æ»¤ï¼Œåªèƒ½æ“ä½œé›†åˆ
+	//PostFilter,å¯¹æ“ä½œåè¿›è¡Œè¿‡æ»¤ï¼Œåªèƒ½æ“ä½œé›†åˆ
 	@PreFilter(value="filterObject%2==0")
 	@ResponseBody
 	@RequestMapping("/admin/test/pre/filter")

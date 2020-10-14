@@ -21,13 +21,13 @@ public class RoleServiceImpl implements RoleService {
 
 	public PageInfo<Role> getPageInfo(Integer pageNum, Integer pageSize, String keyword) {
 
-		// 1.¿ªÆô·ÖÒ³¹¦ÄÜ
+		// 1.å¼€å¯åˆ†é¡µåŠŸèƒ½
 		PageHelper.startPage(pageNum, pageSize);
 
-		// 2.Ö´ĞĞ²éÑ¯
+		// 2.æ‰§è¡ŒæŸ¥è¯¢
 		List<Role> roleList = roleMapper.selectRoleByKeyword(keyword);
 
-		// 3.·â×°ÎªPageInfo¶ÔÏó·µ»Ø
+		// 3.å°è£…ä¸ºPageInfoå¯¹è±¡è¿”å›
 		return new PageInfo<Role>(roleList);
 	}
 

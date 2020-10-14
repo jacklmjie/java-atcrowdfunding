@@ -1,7 +1,7 @@
 package com.atguigu.crowd.exception;
 
 /**
- * 表示用户没有登录就访问受保护资源时抛出的异常
+ * 琛ㄧず鐢ㄦ埛娌℃湁鐧诲綍灏辫闂彈淇濇姢璧勬簮鏃舵姏鍑虹殑寮傚父
  * @author Lenovo
  *
  */

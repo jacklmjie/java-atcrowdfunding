@@ -13,7 +13,7 @@ import com.atguigu.crowd.entity.Menu;
 import com.atguigu.crowd.service.api.MenuService;
 import com.atguigu.crowd.util.ResultEntity;
 
-//@RestController×¢½â=@ResponseBody+@Controller
+//@RestControlleræ³¨è§£=@ResponseBody+@Controller
 @RestController
 //@ResponseBody
 //@Controller
@@ -55,16 +55,16 @@ public class MenuHandler {
 	@RequestMapping("/menu/get/whole/tree.json")
 	public ResultEntity<Menu> getWholeTreeNew() {
 
-		// 1.²éÑ¯È«²¿µÄMenu¶ÔÏó
+		// 1.æŸ¥è¯¢å…¨éƒ¨çš„Menuå¯¹è±¡
 		List<Menu> menuList = menuService.getAll();
 
-		// 2.ÉùÃ÷Ò»¸ö±äÁ¿ÓÃÀ´´æ´¢ÕÒµ½µÄ¸ù½Úµã
+		// 2.å£°æ˜ä¸€ä¸ªå˜é‡ç”¨æ¥å­˜å‚¨æ‰¾åˆ°çš„æ ¹èŠ‚ç‚¹
 		Menu root = null;
 
-		// 3.´´½¨Map¶ÔÏóÓÃÀ´´æ´¢idºÍMenu¶ÔÏóµÄ¶ÔÓ¦¹ØÏµ±ãÓÚ²éÕÒ¸¸½Úµã
+		// 3.åˆ›å»ºMapå¯¹è±¡ç”¨æ¥å­˜å‚¨idå’ŒMenuå¯¹è±¡çš„å¯¹åº”å…³ç³»ä¾¿äºæŸ¥æ‰¾çˆ¶èŠ‚ç‚¹
 		Map<Integer, Menu> menuMap = new HashMap<Integer, Menu>();
 
-		// 4.±éÀúmenuListÌî³ämenuMap
+		// 4.éå†menuListå¡«å……menuMap
 		for (Menu menu : menuList) {
 
 			Integer id = menu.getId();
@@ -72,28 +72,28 @@ public class MenuHandler {
 			menuMap.put(id, menu);
 		}
 
-		// 5.ÔÙ´Î±éÀúmenuList²éÕÒ¸ù½Úµã¡¢×é×°¸¸×Ó½Úµã
+		// 5.å†æ¬¡éå†menuListæŸ¥æ‰¾æ ¹èŠ‚ç‚¹ã€ç»„è£…çˆ¶å­èŠ‚ç‚¹
 		for (Menu menu : menuList) {
 
-			// 6.»ñÈ¡µ±Ç°menu¶ÔÏóµÄpidÊôĞÔÖµ
+			// 6.è·å–å½“å‰menuå¯¹è±¡çš„pidå±æ€§å€¼
 			Integer pid = menu.getPid();
 
-			// 7.Èç¹ûpidÎªnull£¬ÅĞ¶¨Îª¸ù½Úµã
+			// 7.å¦‚æœpidä¸ºnullï¼Œåˆ¤å®šä¸ºæ ¹èŠ‚ç‚¹
 			if (pid == null) {
 				root = menu;
 
-				// 8.Èç¹ûµ±Ç°½ÚµãÊÇ¸ù½Úµã£¬ÄÇÃ´¿Ï¶¨Ã»ÓĞ¸¸½Úµã£¬²»±Ø¼ÌĞøÖ´ĞĞ
+				// 8.å¦‚æœå½“å‰èŠ‚ç‚¹æ˜¯æ ¹èŠ‚ç‚¹ï¼Œé‚£ä¹ˆè‚¯å®šæ²¡æœ‰çˆ¶èŠ‚ç‚¹ï¼Œä¸å¿…ç»§ç»­æ‰§è¡Œ
 				continue;
 			}
 
-			// 9.Èç¹ûpid²»Îªnull£¬ËµÃ÷µ±Ç°½ÚµãÓĞ¸¸½Úµã£¬ÄÇÃ´¿ÉÒÔ¸ù¾İpidµ½menuMapÖĞ²éÕÒ¶ÔÓ¦µÄMenu¶ÔÏó
+			// 9.å¦‚æœpidä¸ä¸ºnullï¼Œè¯´æ˜å½“å‰èŠ‚ç‚¹æœ‰çˆ¶èŠ‚ç‚¹ï¼Œé‚£ä¹ˆå¯ä»¥æ ¹æ®pidåˆ°menuMapä¸­æŸ¥æ‰¾å¯¹åº”çš„Menuå¯¹è±¡
 			Menu father = menuMap.get(pid);
 
-			// 10.½«µ±Ç°½Úµã´æÈë¸¸½ÚµãµÄchildren¼¯ºÏ
+			// 10.å°†å½“å‰èŠ‚ç‚¹å­˜å…¥çˆ¶èŠ‚ç‚¹çš„childrené›†åˆ
 			father.getChildren().add(menu);
 		}
 
-		// 11.¾­¹ıÉÏÃæµÄÔËËã£¬¸ù½Úµã°üº¬ÁËÕû¸öÊ÷ĞÎ½á¹¹£¬·µ»Ø¸ù½Úµã¾ÍÊÇ·µ»ØÕû¸öÊ÷
+		// 11.ç»è¿‡ä¸Šé¢çš„è¿ç®—ï¼Œæ ¹èŠ‚ç‚¹åŒ…å«äº†æ•´ä¸ªæ ‘å½¢ç»“æ„ï¼Œè¿”å›æ ¹èŠ‚ç‚¹å°±æ˜¯è¿”å›æ•´ä¸ªæ ‘
 		return ResultEntity.successWithData(root);
 	}
 }
