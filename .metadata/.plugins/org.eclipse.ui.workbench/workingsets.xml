@@ -7,6 +7,7 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599001000750_6" label="atcrowdfunding04-admin-entity" name="atcrowdfunding04-admin-entity"/>
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599001015499_7" label="atcrowdfunding01-admin-parent" name="atcrowdfunding01-admin-parent"/>
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1599002095142_8" label="atcrowdfunding05-common-util" name="atcrowdfunding05-common-util"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1601171742614_9" label="atcrowdfunding07-member-parent" name="atcrowdfunding07-member-parent"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598685884842_2" label="Window Working Set" name="Aggregate for window 1598685884842"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598845129798_3" label="Window Working Set" name="Aggregate for window 1598845129798"/>
 </workingSetManager>

@@ -1,57 +1,53 @@
 package com.atguigu.crowd.util;
 
 /**
- * Í³Ò»Õû¸öÏîÄ¿ÖĞAjaxÇëÇó·µ»ØµÄ½á¹û£¨Î´À´Ò²¿ÉÒÔÓÃÓÚ·Ö²¼Ê½¼Ü¹¹¸÷¸öÄ£¿é¼äµ÷ÓÃÊ±·µ»ØÍ³Ò»ÀàĞÍ£©
- * 
+ * ç»Ÿä¸€æ•´ä¸ªé¡¹ç›®ä¸­Ajaxè¯·æ±‚è¿”å›çš„ç»“æœï¼ˆæœªæ¥ä¹Ÿå¯ä»¥ç”¨äºåˆ†å¸ƒå¼æ¶æ„å„ä¸ªæ¨¡å—é—´è°ƒç”¨æ—¶è¿”å›ç»Ÿä¸€ç±»å‹ï¼‰
  * @author Lenovo
  *
  * @param <T>
  */
 public class ResultEntity<T> {
-
+	
 	public static final String SUCCESS = "SUCCESS";
 	public static final String FAILED = "FAILED";
-
-	// ÓÃÀ´·â×°µ±Ç°ÇëÇó´¦ÀíµÄ½á¹ûÊÇ³É¹¦»¹ÊÇÊ§°Ü
+	
+	// ç”¨æ¥å°è£…å½“å‰è¯·æ±‚å¤„ç†çš„ç»“æœæ˜¯æˆåŠŸè¿˜æ˜¯å¤±è´¥
 	private String result;
-
-	// ÇëÇó´¦ÀíÊ§°ÜÊ±·µ»ØµÄ´íÎóÏûÏ¢
+	
+	// è¯·æ±‚å¤„ç†å¤±è´¥æ—¶è¿”å›çš„é”™è¯¯æ¶ˆæ¯
 	private String message;
-
-	// Òª·µ»ØµÄÊı¾İ
+	
+	// è¦è¿”å›çš„æ•°æ®
 	private T data;
-
+	
 	/**
-	 * ÇëÇó´¦Àí³É¹¦ÇÒ²»ĞèÒª·µ»ØÊı¾İÊ±Ê¹ÓÃµÄ¹¤¾ß·½·¨
-	 * 
+	 * è¯·æ±‚å¤„ç†æˆåŠŸä¸”ä¸éœ€è¦è¿”å›æ•°æ®æ—¶ä½¿ç”¨çš„å·¥å…·æ–¹æ³•
 	 * @return
 	 */
 	public static <Type> ResultEntity<Type> successWithoutData() {
 		return new ResultEntity<Type>(SUCCESS, null, null);
 	}
-
+	
 	/**
-	 * ÇëÇó´¦Àí³É¹¦ÇÒĞèÒª·µ»ØÊı¾İÊ±Ê¹ÓÃµÄ¹¤¾ß·½·¨
-	 * 
-	 * @param data Òª·µ»ØµÄÊı¾İ
+	 * è¯·æ±‚å¤„ç†æˆåŠŸä¸”éœ€è¦è¿”å›æ•°æ®æ—¶ä½¿ç”¨çš„å·¥å…·æ–¹æ³•
+	 * @param data è¦è¿”å›çš„æ•°æ®
 	 * @return
 	 */
 	public static <Type> ResultEntity<Type> successWithData(Type data) {
 		return new ResultEntity<Type>(SUCCESS, null, data);
 	}
-
+	
 	/**
-	 * ÇëÇó´¦ÀíÊ§°ÜºóÊ¹ÓÃµÄ¹¤¾ß·½·¨
-	 * 
-	 * @param message Ê§°ÜµÄ´íÎóÏûÏ¢
+	 * è¯·æ±‚å¤„ç†å¤±è´¥åä½¿ç”¨çš„å·¥å…·æ–¹æ³•
+	 * @param message å¤±è´¥çš„é”™è¯¯æ¶ˆæ¯
 	 * @return
 	 */
 	public static <Type> ResultEntity<Type> failed(String message) {
 		return new ResultEntity<Type>(FAILED, message, null);
 	}
-
+	
 	public ResultEntity() {
-
+		
 	}
 
 	public ResultEntity(String result, String message, T data) {

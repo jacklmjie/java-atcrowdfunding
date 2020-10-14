@@ -2,14 +2,21 @@ package com.atguigu.crowd.constant;
 
 public class CrowdConstant {
 	
-	public static final String MESSAGE_LOGIN_FAILED = "±§Ç¸£¡ÕËºÅÃÜÂë´íÎó£¡ÇëÖØĞÂÊäÈë£¡";
-	public static final String MESSAGE_LOGIN_ACCT_ALREADY_IN_USE = "±§Ç¸£¡Õâ¸öÕËºÅÒÑ¾­±»Ê¹ÓÃÁË£¡";
-	public static final String MESSAGE_ACCESS_FORBIDEN = "ÇëµÇÂ¼ÒÔºóÔÙ·ÃÎÊ£¡";
-	public static final String MESSAGE_STRING_INVALIDATE = "×Ö·û´®²»ºÏ·¨£¡Çë²»Òª´«Èë¿Õ×Ö·û´®£¡";
-	public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "ÏµÍ³´íÎó£ºµÇÂ¼ÕËºÅ²»Î¨Ò»£¡";
-	public static final String MESSAGE_ACCESS_DENIED = "±§Ç¸£¡Äú²»ÄÜ·ÃÎÊÕâ¸ö×ÊÔ´£¡";
+	public static final String MESSAGE_LOGIN_FAILED = "æŠ±æ­‰ï¼è´¦å·å¯†ç é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼";
+	public static final String MESSAGE_LOGIN_ACCT_ALREADY_IN_USE = "æŠ±æ­‰ï¼è¿™ä¸ªè´¦å·å·²ç»è¢«ä½¿ç”¨äº†ï¼";
+	public static final String MESSAGE_ACCESS_FORBIDEN = "è¯·ç™»å½•ä»¥åå†è®¿é—®ï¼";
+	public static final String MESSAGE_STRING_INVALIDATE = "å­—ç¬¦ä¸²ä¸åˆæ³•ï¼è¯·ä¸è¦ä¼ å…¥ç©ºå­—ç¬¦ä¸²ï¼";
+	public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "ç³»ç»Ÿé”™è¯¯ï¼šç™»å½•è´¦å·ä¸å”¯ä¸€ï¼";
+	public static final String MESSAGE_ACCESS_DENIED = "æŠ±æ­‰ï¼æ‚¨ä¸èƒ½è®¿é—®è¿™ä¸ªèµ„æºï¼";
+	public static final String MESSAGE_CODE_NOT_EXISTS = "éªŒè¯ç å·²è¿‡æœŸï¼è¯·æ£€æŸ¥æ‰‹æœºå·æ˜¯å¦æ­£ç¡®æˆ–é‡æ–°å‘é€ï¼";
+	public static final String MESSAGE_CODE_INVALID = "éªŒè¯ç ä¸æ­£ç¡®ï¼";
 	
 	public static final String ATTR_NAME_EXCEPTION = "exception";
 	public static final String ATTR_NAME_LOGIN_ADMIN = "loginAdmin";
+	public static final String ATTR_NAME_LOGIN_MEMBER = "loginMember";
 	public static final String ATTR_NAME_PAGE_INFO = "pageInfo";
+	public static final String ATTR_NAME_MESSAGE = "message";
+	
+	public static final String REDIS_CODE_PREFIX = "REDIS_CODE_PREFIX_";
+
 }

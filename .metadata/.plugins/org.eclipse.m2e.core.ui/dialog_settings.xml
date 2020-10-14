@@ -25,12 +25,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org."/>
+			<item value="org.222222"/>
 		</list>
 		<list key="groupId">
 			<item value="com.atguigu.crowd"/>
 		</list>
 		<list key="artifactId">
+			<item value="222222"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -47,10 +48,25 @@
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 			<item value="com.atguigu.crowd"/>
+			<item value="demo.2"/>
 		</list>
 		<list key="name">
+			<item value="demo2"/>
 		</list>
 		<list key="artifactId">
+			<item value="222222"/>
+			<item value="atcrowdfunding07-member-parent"/>
+			<item value="demo.2"/>
+			<item value="atcrowdfunding17-member-api"/>
+			<item value="atcrowdfunding16-member-zuul"/>
+			<item value="atcrowdfunding15-member-pay-consumer"/>
+			<item value="atcrowdfunding14-member-order-consumer"/>
+			<item value="atcrowdfunding13-member-project-consumer"/>
+			<item value="atcrowdfunding12-member-authentication-consumer"/>
+			<item value="atcrowdfunding11-member-redis-provider"/>
+			<item value="atcrowdfunding10-member-mysql-provider"/>
+			<item value="atcrowdfunding09-member-entity"/>
+			<item value="atcrowdfunding08-member-eureka"/>
 			<item value="atcrowdfunding02-admin-webui"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -67,6 +83,18 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="222222"/>
+			<item value="coms.a.s"/>
+			<item value="atcrowdfunding17-member-api"/>
+			<item value="atcrowdfunding16-member-zuul"/>
+			<item value="atcrowdfunding15-member-pay-consumer"/>
+			<item value="atcrowdfunding14-member-order-consumer"/>
+			<item value="atcrowdfunding13-member-project-consumer"/>
+			<item value="atcrowdfunding12-member-authentication-consumer"/>
+			<item value="atcrowdfunding11-member-redis-provider"/>
+			<item value="atcrowdfunding10-member-mysql-provider"/>
+			<item value="atcrowdfunding09-member-entity"/>
+			<item value="atcrowdfunding08-member-eureka"/>
 			<item value="atcrowdfunding04-admin-entity"/>
 			<item value="atcrowdfunding03-admin-component"/>
 			<item value="atcrowdfunding02-admin-webui"/>
@@ -101,8 +129,9 @@
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="D:\java\git\java-atcrowdfunding"/>
-			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding05-common-util"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding07-member-parent"/>
+			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding05-common-util"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding04-admin-entity"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding03-admin-component"/>
 			<item value="D:\java\git\java-atcrowdfunding\atcrowdfunding01-admin-parent\atcrowdfunding02-admin-webui"/>
