@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.util.EntityUtils;
 
 import com.aliyun.api.gateway.demo.util.HttpUtils;
 import com.atguigu.crowd.constant.CrowdConstant;
@@ -22,6 +21,7 @@ import com.atguigu.crowd.constant.CrowdConstant;
  */
 public class CrowdUtil {
 	
+
 	/**
 	 * 给远程第三方短信接口发送请求把验证码发送到用户手机上
 	 * @param host		短信接口调用的URL地址

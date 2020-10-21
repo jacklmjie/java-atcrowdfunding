@@ -15,3 +15,6 @@ short:
     path: /codeNotice
     sign: 151003
     skin: 84683
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="com.atguigu.crowd.exception.LoginFailedException"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.constant.CrowdConstant"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.CrowdUtil"/>
-    <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.Admin"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -26,7 +25,6 @@
     <fullyQualifiedTypeName name="org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.util.ResultEntity"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.RoleExample"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.RoleExample.Criteria"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.mapper.MenuMapper"/>
@@ -42,7 +40,10 @@
     <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.entity.po.MemberPO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 </qualifiedTypeNameHistroy>
