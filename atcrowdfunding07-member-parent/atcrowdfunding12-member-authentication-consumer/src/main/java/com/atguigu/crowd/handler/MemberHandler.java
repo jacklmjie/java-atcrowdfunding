@@ -87,7 +87,8 @@ public class MemberHandler {
 		MemberLoginVO memberLoginVO = new MemberLoginVO(memberPO.getId(), memberPO.getUsername(), memberPO.getEmail());
 		session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER, memberLoginVO);
 		
-		return "redirect:/auth/member/to/center/page";
+		return "redirect:http://localhost/auth/member/to/center/page";
+		//return "redirect:/auth/member/to/center/page";
 	}
 	
 	@RequestMapping("/auth/do/member/register")

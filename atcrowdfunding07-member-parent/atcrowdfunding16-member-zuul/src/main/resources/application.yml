@@ -1,6 +1,10 @@
 server:
   port: 80
 spring:  application:    name: atguigu-crowd-zuul
+  redis:
+    host: 127.0.0.1
+  session:
+    store-type: redis 
 eureka:
   client:
     service-url:

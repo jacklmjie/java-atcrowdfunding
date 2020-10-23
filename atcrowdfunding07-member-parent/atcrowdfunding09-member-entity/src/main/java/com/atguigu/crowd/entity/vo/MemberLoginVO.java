@@ -1,5 +1,7 @@
 package com.atguigu.crowd.entity.vo;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberLoginVO {
+public class MemberLoginVO implements Serializable {
 	
 	private Integer id;
 	

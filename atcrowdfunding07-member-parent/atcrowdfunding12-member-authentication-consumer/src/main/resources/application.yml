@@ -3,6 +3,10 @@ server:
 spring:  application:    name: atguigu-crowd-auth
   thymeleaf:    prefix: classpath:/templates/
     suffix: .html
+  redis:
+    host: 127.0.0.1
+  session:
+    store-type: redis
 eureka:
   client:
     service-url:
