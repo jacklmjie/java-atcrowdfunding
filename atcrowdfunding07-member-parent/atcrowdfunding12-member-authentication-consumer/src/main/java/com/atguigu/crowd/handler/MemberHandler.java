@@ -40,7 +40,7 @@ public class MemberHandler {
 		
 		session.invalidate();
 		
-		return "redirect:/";
+		return "redirect:http://www.crowd.com/";
 	}
 	
 	@RequestMapping("/auth/member/do/login")
@@ -87,7 +87,7 @@ public class MemberHandler {
 		MemberLoginVO memberLoginVO = new MemberLoginVO(memberPO.getId(), memberPO.getUsername(), memberPO.getEmail());
 		session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER, memberLoginVO);
 		
-		return "redirect:http://localhost/auth/member/to/center/page";
+		return "redirect:http://www.crowd.com/auth/member/to/center/page";
 		//return "redirect:/auth/member/to/center/page";
 	}
 	
@@ -160,7 +160,7 @@ public class MemberHandler {
 		}
 		
 		// 使用重定向避免刷新浏览器导致重新执行注册流程
-		return "redirect:/auth/member/to/login/page";
+		return "redirect:http://www.crowd.com/auth/member/to/login/page";
 	}
 	
 	@ResponseBody

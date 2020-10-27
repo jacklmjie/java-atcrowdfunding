@@ -49,6 +49,20 @@
 	transition: all 0.3s ease-in-out;
 }
 </style>
+	<script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="script/docs.min.js"></script>
+	<script type="text/javascript" src="script/back-to-top.js"></script>
+	<script type="text/javascript">
+		$('#myTab a').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+		$('#myTab1 a').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+	</script>
 </head>
 <body>
 	<div class="navbar-wrapper">
@@ -124,9 +138,15 @@
 							<li role="presentation"><a href="#attension">我关注的</a></li>
 							<li role="presentation"><a href="#add">我发起的</a></li>
 							<li class=" pull-right">
-								<button type="button" class="btn btn-warning"
-									onclick="window.location.href='start.html'">发起众筹</button>
-							</li>
+								<script type="text/javascript">
+									$(function(){
+										$("#launchCrowdBtn").click(function(){
+											window.location.href = "http://www.crowd.com/project/agree/protocol/page";
+										});
+									});
+								</script>
+								<button id="launchCrowdBtn" type="button"
+									class="btn btn-warning">发起众筹</button></li>
 						</ul>
 						<div id="myTab1" class="tab-content" style="margin-top: 10px;">
 							<div role="tabpanel" class="tab-pane fade active in" id="support"
@@ -401,19 +421,5 @@
 			</div>
 		</div>
 	</div>
-	<script src="jquery/jquery-2.1.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="script/docs.min.js"></script>
-	<script src="script/back-to-top.js"></script>
-	<script>
-		$('#myTab a').click(function(e) {
-			e.preventDefault()
-			$(this).tab('show')
-		})
-		$('#myTab1 a').click(function(e) {
-			e.preventDefault()
-			$(this).tab('show')
-		})
-	</script>
 </body>
 </html>

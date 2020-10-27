@@ -12,13 +12,11 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.entity.Admin"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="org.springframework.dao.DuplicateKeyException"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.exception.LoginAcctAlreadyInUseException"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.exception.LoginAcctAlreadyInUseForUpdateException"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.github.pagehelper.PageHelper"/>
     <fullyQualifiedTypeName name="com.github.pagehelper.PageInfo"/>
     <fullyQualifiedTypeName name="com.atguigu.crowd.mapper.RoleMapper"/>
@@ -46,4 +44,7 @@
     <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.atguigu.crowd.service.api.ProjectService"/>
 </qualifiedTypeNameHistroy>
