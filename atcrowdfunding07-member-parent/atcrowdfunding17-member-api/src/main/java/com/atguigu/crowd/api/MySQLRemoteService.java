@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.atguigu.crowd.entity.po.MemberPO;
+import com.atguigu.crowd.entity.vo.ProjectVO;
 import com.atguigu.crowd.util.ResultEntity;
 
 @FeignClient("atguigu-crowd-mysql")
@@ -16,4 +17,7 @@ public interface MySQLRemoteService {
 
 	@RequestMapping("/save/member/remote")
 	public ResultEntity<String> saveMember(@RequestBody MemberPO memberPO);
+
+	@RequestMapping("/save/project/vo/remote")
+	ResultEntity<String> saveProjectVORemote(@RequestBody ProjectVO projectVO, @RequestParam("memberId") Integer memberId);
 }
