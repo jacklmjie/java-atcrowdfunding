@@ -46,6 +46,17 @@ js缓存，Maven Clean重新加载
 - [菜单没有SPRING BEAN CONFIGURATION FILE选项](https://my.oschina.net/startstorm/blog/4523329)
 - [添加tomcat 服务](https://blog.csdn.net/qijianglin/article/details/82967628?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
 
+### 工具
+```bash
+entity工程-lombok
+dev-tools 可以加依赖，每次调试不用重新启动，改完即可生效
+switch hosts工具
+session共享，解决session不互通问题
+阿里云oss
+支付沙箱环境
+内网穿透natapp
+```
+
 ### 未解决问题
 ```bash
 vs code 基于maven子模块的项目创建
