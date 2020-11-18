@@ -126,5 +126,4 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/com/aliyun/aliyun-java-sdk-ram/3.0.0/aliyun-java-sdk-ram-3.0.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/aliyun/aliyun-java-sdk-sts/3.0.0/aliyun-java-sdk-sts-3.0.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/aliyun/aliyun-java-sdk-ecs/4.2.0/aliyun-java-sdk-ecs-4.2.0.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/boot/spring-boot-configuration-processor/2.1.6.RELEASE/spring-boot-configuration-processor-2.1.6.RELEASE.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

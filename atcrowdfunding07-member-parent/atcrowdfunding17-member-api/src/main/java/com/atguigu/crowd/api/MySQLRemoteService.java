@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.atguigu.crowd.entity.po.MemberPO;
+import com.atguigu.crowd.entity.vo.AddressVO;
 import com.atguigu.crowd.entity.vo.DetailProjectVO;
+import com.atguigu.crowd.entity.vo.OrderProjectVO;
+import com.atguigu.crowd.entity.vo.OrderVO;
 import com.atguigu.crowd.entity.vo.PortalTypeVO;
 import com.atguigu.crowd.entity.vo.ProjectVO;
 import com.atguigu.crowd.util.ResultEntity;
@@ -31,4 +34,16 @@ public interface MySQLRemoteService {
 	
 	@RequestMapping("/get/project/detail/remote/{projectId}")
 	public ResultEntity<DetailProjectVO> getDetailProjectVORemote(@PathVariable("projectId") Integer projectId);
+	
+	@RequestMapping("/get/order/project/vo/remote")
+	ResultEntity<OrderProjectVO> getOrderProjectVORemote(@RequestParam("projectId") Integer projectId, @RequestParam("returnId") Integer returnId);
+
+	@RequestMapping("/get/address/vo/remote")
+	ResultEntity<List<AddressVO>> getAddressVORemote(@RequestParam("memberId") Integer memberId);
+
+	@RequestMapping("/save/address/remote")
+	ResultEntity<String> saveAddressRemote(@RequestBody AddressVO addressVO);
+	
+	@RequestMapping("/save/order/remote")
+	ResultEntity<String> saveOrderRemote(@RequestBody OrderVO orderVO);
 }

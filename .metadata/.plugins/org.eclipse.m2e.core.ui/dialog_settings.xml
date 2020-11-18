@@ -25,13 +25,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org.222222"/>
+			<item value="org.atcrowdfunding14.member.order.consumer"/>
 		</list>
 		<list key="groupId">
 			<item value="com.atguigu.crowd"/>
 		</list>
 		<list key="artifactId">
-			<item value="222222"/>
+			<item value="atcrowdfunding14-member-order-consumer"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -48,26 +48,12 @@
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 			<item value="com.atguigu.crowd"/>
-			<item value="demo.2"/>
 		</list>
 		<list key="name">
-			<item value="demo2"/>
 		</list>
 		<list key="artifactId">
-			<item value="222222"/>
-			<item value="atcrowdfunding07-member-parent"/>
-			<item value="demo.2"/>
-			<item value="atcrowdfunding17-member-api"/>
-			<item value="atcrowdfunding16-member-zuul"/>
-			<item value="atcrowdfunding15-member-pay-consumer"/>
 			<item value="atcrowdfunding14-member-order-consumer"/>
-			<item value="atcrowdfunding13-member-project-consumer"/>
-			<item value="atcrowdfunding12-member-authentication-consumer"/>
-			<item value="atcrowdfunding11-member-redis-provider"/>
-			<item value="atcrowdfunding10-member-mysql-provider"/>
-			<item value="atcrowdfunding09-member-entity"/>
-			<item value="atcrowdfunding08-member-eureka"/>
-			<item value="atcrowdfunding02-admin-webui"/>
+			<item value="atcrowdfunding07-member-parent"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -83,12 +69,12 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="atcrowdfunding14-member-order-consumer"/>
 			<item value="222222"/>
 			<item value="coms.a.s"/>
 			<item value="atcrowdfunding17-member-api"/>
 			<item value="atcrowdfunding16-member-zuul"/>
 			<item value="atcrowdfunding15-member-pay-consumer"/>
-			<item value="atcrowdfunding14-member-order-consumer"/>
 			<item value="atcrowdfunding13-member-project-consumer"/>
 			<item value="atcrowdfunding12-member-authentication-consumer"/>
 			<item value="atcrowdfunding11-member-redis-provider"/>
