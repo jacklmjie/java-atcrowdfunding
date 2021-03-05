@@ -1,5 +1,6 @@
 # java-atcrowdfunding
 尚筹网实战项目，第一个java项目，学习记录
+- [后续malla实战项目](https://github.com/jacklmjie/java-my-mall-learning)
 
 ## 目标-思路-代码
 ### 课程内容
